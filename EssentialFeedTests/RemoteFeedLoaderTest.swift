@@ -38,37 +38,44 @@ final class RemoteFeedLoaderTest: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
 
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load { capturedErrors.append($0) }
-        
-        let clientError = NSError(domain: "Test", code: 0)
-        client.callAllCompletions(with: clientError)
-
-        XCTAssertEqual(capturedErrors, [.connectivity])
+        expect(sut, toCompleteWithErrors: [.connectivity], when: {
+            let clientError = NSError(domain: "Test", code: 0)
+            client.callAllCompletions(with: clientError)
+        })
     }
     
     func test_load_deliversErrorOnNon200HTTPResponse() {
         let (sut, client) = makeSUT()
-
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load { capturedErrors.append($0) }
         
         let samples = [199, 201, 300, 400, 500]
-        samples.forEach { client.callAllCompletions(withStatusCode: $0) }
+        let expectedErrors: [RemoteFeedLoader.Error] = samples.map { _ in .invalidData }
         
-        XCTAssertEqual(capturedErrors, samples.map { _ in .invalidData })
+        expect(sut, toCompleteWithErrors: expectedErrors, when: {
+            samples.forEach { client.callAllCompletions(withStatusCode: $0) }
+        })
     }
     
     func test_load_deliversErrorOn200HTTPResponse_withInvalidJSON() {
         let (sut, client) = makeSUT()
-
+        
+        expect(sut, toCompleteWithErrors: [.invalidData], when: {
+            let invalidJSON = Data("invalid json".utf8)
+            client.callAllCompletions(withStatusCode: 200, data: invalidJSON)
+        })
+    }
+    
+    private func expect(
+        _ sut: RemoteFeedLoader,
+        toCompleteWithErrors errors: [RemoteFeedLoader.Error],
+        when action: () -> Void,
+        line: UInt = #line
+    ) {
         var capturedErrors = [RemoteFeedLoader.Error]()
         sut.load { capturedErrors.append($0) }
         
-        let invalidJSON = Data("invalid json".utf8)
-        client.callAllCompletions(withStatusCode: 200, data: invalidJSON)
+        action()
         
-        XCTAssertEqual(capturedErrors, [.invalidData])
+        XCTAssertEqual(capturedErrors, errors,  line: line)
     }
 
     // MARK: - Helpers
