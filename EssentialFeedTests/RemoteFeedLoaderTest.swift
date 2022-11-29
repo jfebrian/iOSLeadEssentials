@@ -70,12 +70,12 @@ final class RemoteFeedLoaderTest: XCTestCase {
         when action: () -> Void,
         line: UInt = #line
     ) {
-        var capturedErrors = [RemoteFeedLoader.Error]()
-        sut.load { capturedErrors.append($0) }
+        var capturedResults = [RemoteFeedLoader.Result]()
+        sut.load { capturedResults.append($0) }
         
         action()
         
-        XCTAssertEqual(capturedErrors, errors,  line: line)
+        XCTAssertEqual(capturedResults, errors.map { .failure($0) },  line: line)
     }
 
     // MARK: - Helpers
