@@ -51,11 +51,13 @@ final class RemoteFeedLoaderTest: XCTestCase {
         let (sut, client) = makeSUT()
 
         var capturedErrors = [RemoteFeedLoader.Error]()
+        
         sut.load { capturedErrors.append($0) }
         
-        client.callAllCompletions(withStatusCode: 400)
-
-        XCTAssertEqual(capturedErrors, [.invalidData])
+        let samples = [199, 201, 300, 400, 500]
+        samples.forEach { client.callAllCompletions(withStatusCode: $0) }
+        
+        XCTAssertEqual(capturedErrors, samples.map { _ in .invalidData })
     }
 
     // MARK: - Helpers
