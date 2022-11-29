@@ -64,7 +64,7 @@ final class RemoteFeedLoaderTest: XCTestCase {
             client.callAllCompletions(withStatusCode: 200, data: invalidJSON)
         })
     }
-    
+     
     func test_load_deliversNoItemsOn200HTTPSResponse_withEmptyJSONList() {
         let (sut, client) = makeSUT()
         
