@@ -14,9 +14,11 @@ final class URLSessionHTTPClient {
     struct UnexpectedValuesError: Error {}
 
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { _, _, error in
+        session.dataTask(with: url) { data, response, error in
             if let error {
                 completion(.failure(error))
+            } else if let data, !data.isEmpty, let response = response as? HTTPURLResponse {
+                completion(.success((data, response)))
             } else {
                 completion(.failure(UnexpectedValuesError()))
             }
@@ -72,6 +74,30 @@ final class URLSessionHTTPClientTest: XCTestCase {
         XCTAssertNotNil(resultErrorFor(data: anyData, response: nonHTTPURLResponse, error: anyError))
         XCTAssertNotNil(resultErrorFor(data: anyData, response: anyHTTPURLResponse, error: anyError))
         XCTAssertNotNil(resultErrorFor(data: anyData, response: nonHTTPURLResponse, error: nil))
+    }
+    
+    func test_getFromURL_succeedsOnHTTPURLResponseWithData() {
+        let data = anyData
+        let response = anyHTTPURLResponse
+        
+        URLProtocolStub.stub(data: data, response: response, error: nil)
+        
+        let exp = expectation(description: "Wait for comlpetion")
+        
+        makeSUT().get(from: .anyURL()) { result in
+            switch result {
+            case let .success((receivedData, receivedResponse)):
+                XCTAssertEqual(receivedData, data)
+                XCTAssertEqual(receivedResponse.url, response.url)
+                XCTAssertEqual(receivedResponse.statusCode, response.statusCode)
+            default:
+                XCTFail("Expected success, got \(result) instead")
+            }
+            
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 0.1)
     }
     
     // MARK: - Helpers
@@ -169,7 +195,7 @@ final class URLSessionHTTPClientTest: XCTestCase {
         override func stopLoading() {}
     }
     
-    private let anyData = Data()
+    private let anyData = Data("any data".utf8)
     private let anyError: Error = NSError(domain: "any error", code: 0)
     private let anyNSError = NSError(domain: "any error", code: 0)
     private let anyHTTPURLResponse = HTTPURLResponse()
