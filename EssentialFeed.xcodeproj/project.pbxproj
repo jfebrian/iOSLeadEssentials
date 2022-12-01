@@ -17,6 +17,7 @@
 		FC73AA132936394300C44954 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC73AA122936394300C44954 /* RemoteFeedLoader.swift */; };
 		FC8FC9CD2937BF45000E4E56 /* URLSessionHTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8FC9CC2937BF45000E4E56 /* URLSessionHTTPClientTest.swift */; };
 		FCD6B0382938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6B0372938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift */; };
+		FCD6B03A2938E6B800C950A1 /* URL+AnyURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6B0392938E6B800C950A1 /* URL+AnyURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		FC73AA122936394300C44954 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		FC8FC9CC2937BF45000E4E56 /* URLSessionHTTPClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTest.swift; sourceTree = "<group>"; };
 		FCD6B0372938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		FCD6B0392938E6B800C950A1 /* URL+AnyURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+AnyURL.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				FCD6B0372938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift */,
+				FCD6B0392938E6B800C950A1 /* URL+AnyURL.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCD6B03A2938E6B800C950A1 /* URL+AnyURL.swift in Sources */,
 				FC73AA102936336300C44954 /* RemoteFeedLoaderTest.swift in Sources */,
 				FC8FC9CD2937BF45000E4E56 /* URLSessionHTTPClientTest.swift in Sources */,
 				FCD6B0382938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift in Sources */,

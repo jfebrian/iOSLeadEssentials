@@ -138,12 +138,6 @@ final class URLSessionHTTPClientTest: XCTestCase {
     }
 }
 
-private extension URL {
-    static func anyURL() -> URL {
-        URL(string: "http://any-url.com/")!
-    }
-}
-
 func assertNSErrorEqual(
     _ receivedError: NSError,
     _ expectedError: NSError,
