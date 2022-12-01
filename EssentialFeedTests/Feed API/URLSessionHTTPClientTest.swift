@@ -55,23 +55,13 @@ final class URLSessionHTTPClientTest: XCTestCase {
     }
     
     func test_getFromURL_failsOnRequestError() throws {
-        let error = NSError(domain: "any error", code: 1)
+        let error = anyNSError
         let receivedError = resultErrorFor(data: nil, response: nil, error: error)
         
         assertNSErrorEqual(try XCTUnwrap(receivedError as? NSError), error)
     }
     
     func test_getFromURL_failsOnAllInvalidCases() {
-        let nonHTTPURLResponse = URLResponse(
-            url: .anyURL(),
-            mimeType: nil,
-            expectedContentLength: 0,
-            textEncodingName: nil
-        )
-        let anyHTTPURLResponse = HTTPURLResponse()
-        let anyData = Data()
-        let anyError = NSError(domain: "any error", code: 0)
-        
         XCTAssertNotNil(resultErrorFor(data: nil, response: nil, error: nil))
         XCTAssertNotNil(resultErrorFor(data: nil, response: nonHTTPURLResponse, error: nil))
         XCTAssertNotNil(resultErrorFor(data: nil, response: anyHTTPURLResponse, error: nil))
@@ -178,6 +168,17 @@ final class URLSessionHTTPClientTest: XCTestCase {
         
         override func stopLoading() {}
     }
+    
+    private let anyData = Data()
+    private let anyError: Error = NSError(domain: "any error", code: 0)
+    private let anyNSError = NSError(domain: "any error", code: 0)
+    private let anyHTTPURLResponse = HTTPURLResponse()
+    private let nonHTTPURLResponse = URLResponse(
+        url: .anyURL(),
+        mimeType: nil,
+        expectedContentLength: 0,
+        textEncodingName: nil
+    )
 }
 
 func assertNSErrorEqual(
