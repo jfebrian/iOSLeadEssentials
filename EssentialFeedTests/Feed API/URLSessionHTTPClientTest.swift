@@ -130,7 +130,7 @@ final class URLSessionHTTPClientTest: XCTestCase {
         let exp = expectation(description: "Wait for completion")
 
         var receivedResult: HTTPClientResult!
-        makeSUT().get(from: .anyURL()) { result in
+        makeSUT().get(from: anyURL) { result in
             receivedResult = result
             exp.fulfill()
         }
@@ -207,10 +207,12 @@ final class URLSessionHTTPClientTest: XCTestCase {
     private let anyData = Data("any data".utf8)
     private let anyError: Error = NSError(domain: "any error", code: 0)
     private let anyHTTPURLResponse = HTTPURLResponse()
-    private let nonHTTPURLResponse = URLResponse(
-        url: .anyURL(),
-        mimeType: nil,
-        expectedContentLength: 0,
-        textEncodingName: nil
-    )
+    private var nonHTTPURLResponse: URLResponse {
+        URLResponse(
+            url: anyURL,
+            mimeType: nil,
+            expectedContentLength: 0,
+            textEncodingName: nil
+        )
+    }
 }
