@@ -98,8 +98,7 @@ final class CodableFeedStoreTests: XCTestCase {
     
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
         let sut = makeSUT()
-        let feed = uniqueImageFeed().locals
-        let timestamp = Date()
+        let (feed, timestamp) = makeCache()
         
         insert(feed: feed, timestamp: timestamp, to: sut)
         
@@ -108,8 +107,7 @@ final class CodableFeedStoreTests: XCTestCase {
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let sut = makeSUT()
-        let feed = uniqueImageFeed().locals
-        let timestamp = Date()
+        let (feed, timestamp) = makeCache()
         
         insert(feed: feed, timestamp: timestamp, to: sut)
         
@@ -125,6 +123,12 @@ final class CodableFeedStoreTests: XCTestCase {
         let sut = CodableFeedStore(storeURL: testSpecificStoreURL)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func makeCache() -> (feed: [LocalFeedImage], timestamp: Date) {
+        let feed = uniqueImageFeed().locals
+        let timestamp = Date()
+        return (feed, timestamp)
     }
     
     func insert(feed: [LocalFeedImage], timestamp: Date, to sut: CodableFeedStore) {
