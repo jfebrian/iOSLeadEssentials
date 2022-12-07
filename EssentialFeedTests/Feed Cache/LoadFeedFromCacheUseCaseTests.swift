@@ -40,6 +40,20 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         }
     }
     
+    func test_load_deliversCachedImages_onLessThanSevenDaysOldCache() {
+        let feed = uniqueImageFeed()
+        let fixedCurrentDate = Date()
+        let lessThanSevenDaysOldTimeStamp = fixedCurrentDate.adding(days: -7).adding(seconds: 1)
+        let (sut, store) = makeSUT(currentDate: { fixedCurrentDate })
+
+        expect(sut, toCompleteWith: .success(feed.models)) {
+            store.completeRetrieval(
+                with: feed.locals,
+                timestamp: lessThanSevenDaysOldTimeStamp
+            )
+        }
+    }
+    
     // MARK: - Helpers
     
     private func expect(
@@ -79,5 +93,34 @@ final class LoadFeedFromCacheUseCaseTests: XCTestCase {
         trackForMemoryLeaks(sut, file: file, line: line)
         
         return (sut, store)
+    }
+    
+    private func uniqueImage() -> FeedImage {
+        FeedImage(id: UUID(), url: anyURL)
+    }
+    
+    private func uniqueImageFeed() -> (models: [FeedImage], locals: [LocalFeedImage]) {
+        let models = [uniqueImage(), uniqueImage()]
+        let locals = models.map {
+            LocalFeedImage(
+                id: $0.id,
+                description: $0.description,
+                location: $0.location,
+                url: $0.url
+            )
+        }
+        return (models, locals)
+    }
+}
+
+private extension Date {
+    func adding(days: Int) -> Date {
+        Calendar(identifier: .gregorian)
+            .date(byAdding: .day, value: days, to: self)!
+    }
+    
+    func adding(seconds: Int) -> Date {
+        Calendar(identifier: .gregorian)
+            .date(byAdding: .second, value: seconds, to: self)!
     }
 }
