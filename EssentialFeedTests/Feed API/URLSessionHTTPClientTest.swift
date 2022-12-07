@@ -215,21 +215,3 @@ final class URLSessionHTTPClientTest: XCTestCase {
         textEncodingName: nil
     )
 }
-
-func assertNSErrorEqual(
-    _ receivedError: NSError,
-    _ expectedError: NSError,
-    line: UInt = #line
-) {
-    XCTAssertEqual(
-        receivedError.domain, expectedError.domain,
-        "Expected error with domain \(expectedError.domain), got \(receivedError.domain)",
-        line: line
-    )
-    
-    XCTAssertEqual(
-        receivedError.code, expectedError.code,
-        "Expected error with code \(expectedError.code), got \(receivedError.code)",
-        line: line
-    )
-}
