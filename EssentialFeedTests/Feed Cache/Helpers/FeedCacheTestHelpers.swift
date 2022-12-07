@@ -28,18 +28,28 @@ extension XCTestCase {
 }
 
 extension Date {
-    func minusFeedCacheMaxAge() -> Date {
+    func nonExpiredCacheDate() -> Date {
+        cacheExpirationDate().adding(seconds: 1)
+    }
+    
+    func expiredCacheDate() -> Date {
+        cacheExpirationDate().adding(seconds: -1)
+    }
+    
+    func cacheExpirationDate() -> Date {
         adding(days: -feedCacheMaxAgeInDays)
     }
     
     private var feedCacheMaxAgeInDays: Int { 7 }
-    
-    func adding(days: Int) -> Date {
+}
+
+extension Date {
+    private func adding(days: Int) -> Date {
         Calendar(identifier: .gregorian)
             .date(byAdding: .day, value: days, to: self)!
     }
     
-    func adding(seconds: Int) -> Date {
+    private func adding(seconds: Int) -> Date {
         Calendar(identifier: .gregorian)
             .date(byAdding: .second, value: seconds, to: self)!
     }
