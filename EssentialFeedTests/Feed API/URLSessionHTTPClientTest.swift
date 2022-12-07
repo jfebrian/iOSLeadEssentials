@@ -206,7 +206,6 @@ final class URLSessionHTTPClientTest: XCTestCase {
     
     private let anyData = Data("any data".utf8)
     private let anyError: Error = NSError(domain: "any error", code: 0)
-    private let anyNSError = NSError(domain: "any error", code: 0)
     private let anyHTTPURLResponse = HTTPURLResponse()
     private let nonHTTPURLResponse = URLResponse(
         url: .anyURL(),

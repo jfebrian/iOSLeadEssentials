@@ -106,8 +106,6 @@ final class CacheFeedUseCaseTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private let anyNSError = NSError(domain: "any error", code: 0)
-    
     private func expect(
         _ sut: LocalFeedLoader,
         toCompleteWithResult expectedResult: NSError?,

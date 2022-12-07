@@ -7,6 +7,10 @@
 
 import XCTest
 
+extension XCTestCase {
+    var anyNSError: NSError { NSError(domain: "any error", code: 0) }
+}
+
 func assertNSErrorEqual(
     _ receivedError: NSError,
     _ expectedError: NSError,
