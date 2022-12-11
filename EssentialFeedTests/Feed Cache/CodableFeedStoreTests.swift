@@ -218,67 +218,6 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         return (feed, timestamp)
     }
     
-    @discardableResult
-    private func insert(feed: [LocalFeedImage], timestamp: Date, to sut: FeedStore) -> Error? {
-        let exp = expectation(description: "Wait for cache insertion")
-        var insertionError: Error?
-        sut.insert(feed, timestamp: timestamp) { receivedInsertionError in
-            insertionError = receivedInsertionError
-            exp.fulfill()
-        }
-        waitForExpectations(timeout: 0.1)
-        return insertionError
-    }
-    
-    @discardableResult
-    private func deleteCache(from sut: FeedStore) -> Error? {
-        let exp = expectation(description: "Wait for cache insertion")
-        var deletionError: Error?
-        sut.deleteCachedFeed { receivedDeletionError in
-            deletionError = receivedDeletionError
-            exp.fulfill()
-        }
-        waitForExpectations(timeout: 3)
-        return deletionError
-    }
-    
-    private func expect(
-        _ sut: FeedStore,
-        toRetrieve expectedResult: RetriveCachedFeedResult,
-        line: UInt = #line
-    ) {
-        let exp = expectation(description: "Wait for cache retrieval")
-        
-        sut.retrieve { retrievedResult in
-            switch (expectedResult, retrievedResult) {
-            case (.empty, .empty),
-                 (.failure, .failure):
-                break
-            case let (.found(expectedFeed, expectedTimestamp), .found(retrievedFeed, retrievedTimestamp)):
-                XCTAssertEqual(expectedFeed, retrievedFeed, line: line)
-                XCTAssertEqual(expectedTimestamp, retrievedTimestamp, line: line)
-            default:
-                XCTFail(
-                    "Expected to retrieve \(expectedResult), got \(retrievedResult) instead",
-                    line: line
-                )
-            }
-            
-            exp.fulfill()
-        }
-        
-        waitForExpectations(timeout: 0.1)
-    }
-    
-    private func expect(
-        _ sut: FeedStore,
-        toRetrieveTwice expectedResult: RetriveCachedFeedResult,
-        line: UInt = #line
-    ) {
-        expect(sut, toRetrieve: expectedResult, line: line)
-        expect(sut, toRetrieve: expectedResult, line: line)
-    }
-    
     private var testSpecificStoreURL: URL {
         FileManager.default
             .urls(for: .cachesDirectory, in: .userDomainMask).first!
