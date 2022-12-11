@@ -52,7 +52,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieve: .failure(anyNSError))
+        assert_retrieve_deliversFailureOnRetrievalError(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnRetrievalError() {
@@ -61,7 +61,7 @@ final class CodableFeedStoreTests: XCTestCase, FailableFeedStoreSpecs {
         
         try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieveTwice: .failure(anyNSError))
+        assert_retrieve_hasNoSideEffectsOnRetrievalError(on: sut)
     }
     
     func test_insert_deliversNoErrorOnEmptyCache() {
