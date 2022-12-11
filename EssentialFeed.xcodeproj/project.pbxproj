@@ -160,7 +160,7 @@
 			path = "Feed Cache";
 			sourceTree = "<group>";
 		};
-		FC5E388F293F94B8002DEFB2 /* FeedCache */ = {
+		FC5E388F293F94B8002DEFB2 /* Feed Cache */ = {
 			isa = PBXGroup;
 			children = (
 				FC5E3890293F94C6002DEFB2 /* LocalFeedLoader.swift */,
@@ -170,7 +170,7 @@
 				FC3711012940D167005FC676 /* CodableFeedStore.swift */,
 				FC8473722945A69000377009 /* CoreDataFeedStore.swift */,
 			);
-			path = FeedCache;
+			path = "Feed Cache";
 			sourceTree = "<group>";
 		};
 		FC73A9E62936317B00C44954 = {
@@ -200,7 +200,7 @@
 				FC73A9F32936317B00C44954 /* EssentialFeed.h */,
 				FC73AA0E293632C700C44954 /* Feed Feature */,
 				FC73AA112936393300C44954 /* Feed API */,
-				FC5E388F293F94B8002DEFB2 /* FeedCache */,
+				FC5E388F293F94B8002DEFB2 /* Feed Cache */,
 			);
 			path = EssentialFeed;
 			sourceTree = "<group>";
