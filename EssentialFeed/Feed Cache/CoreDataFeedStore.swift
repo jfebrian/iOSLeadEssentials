@@ -35,11 +35,7 @@ public final class CoreDataFeedStore: FeedStore {
         let context = self.context
         context.perform {
             do {
-                let managedCache = ManagedCache(context: context)
-                managedCache.timestamp = timestamp
-                managedCache.feed = NSOrderedSet(array: feed.manageFeed(in: context))
-                
-                try context.save()
+                try ManagedCache.insert(feed: feed, timestamp: timestamp, to: context)
                 completion(nil)
             } catch {
                 completion(error)
@@ -101,6 +97,18 @@ private class ManagedCache: NSManagedObject {
         let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
         request.returnsObjectsAsFaults = false
         return try context.fetch(request).first
+    }
+    
+    static func insert(
+        feed: [LocalFeedImage],
+        timestamp: Date,
+        to context: NSManagedObjectContext
+    ) throws {
+        let managedCache = ManagedCache(context: context)
+        managedCache.timestamp = timestamp
+        managedCache.feed = NSOrderedSet(array: feed.manageFeed(in: context))
+        
+        try context.save()
     }
 }
 
