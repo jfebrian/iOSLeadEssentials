@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC06B98C2945B7AD00296005 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */; };
 		FC21F80B2937A94400EA7370 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC21F80A2937A94400EA7370 /* HTTPClient.swift */; };
 		FC21F80D2937A97100EA7370 /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC21F80C2937A97100EA7370 /* FeedItemsMapper.swift */; };
 		FC29D0AE29401A450063F8DB /* LoadFeedFromCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29D0AD29401A450063F8DB /* LoadFeedFromCacheUseCaseTests.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		FC21F80A2937A94400EA7370 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		FC21F80C2937A97100EA7370 /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 		FC29D0AD29401A450063F8DB /* LoadFeedFromCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFeedFromCacheUseCaseTests.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		FC06B9892945B75100296005 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */,
 				FC8473722945A69000377009 /* CoreDataFeedStore.swift */,
 				FC8473742945A85700377009 /* FeedStore.xcdatamodeld */,
 			);
@@ -434,6 +437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC06B98C2945B7AD00296005 /* CoreDataHelpers.swift in Sources */,
 				FC21F80D2937A97100EA7370 /* FeedItemsMapper.swift in Sources */,
 				FC73AA0D2936321900C44954 /* FeedLoader.swift in Sources */,
 				FC5E3895293F9C49002DEFB2 /* RemoteFeedItem.swift in Sources */,
