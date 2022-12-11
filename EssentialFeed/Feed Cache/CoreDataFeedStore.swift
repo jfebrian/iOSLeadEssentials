@@ -104,11 +104,16 @@ private class ManagedCache: NSManagedObject {
         timestamp: Date,
         to context: NSManagedObjectContext
     ) throws {
-        let managedCache = ManagedCache(context: context)
+        let managedCache = try ManagedCache.newUniqueInstance(in: context)
         managedCache.timestamp = timestamp
         managedCache.feed = NSOrderedSet(array: feed.manageFeed(in: context))
         
         try context.save()
+    }
+    
+    static private func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
+        try find(in: context).map(context.delete(_:))
+        return ManagedCache(context: context)
     }
 }
 
