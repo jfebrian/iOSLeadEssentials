@@ -47,7 +47,7 @@ public final class CoreDataFeedStore: FeedStore {
         let context = self.context
         context.perform {
             do {
-                try ManagedCache.find(in: context).map(context.delete(_:)).map(context.save)
+                try ManagedCache.delete(in: context)
                 completion(nil)
             } catch {
                 completion(error)
@@ -105,6 +105,10 @@ private class ManagedCache: NSManagedObject {
         let request = NSFetchRequest<ManagedCache>(entityName: ManagedCache.entity().name!)
         request.returnsObjectsAsFaults = false
         return try context.fetch(request).first
+    }
+    
+    static func delete(in context: NSManagedObjectContext) throws {
+        try find(in: context).map(context.delete(_:)).map(context.save)
     }
     
     static func insert(
