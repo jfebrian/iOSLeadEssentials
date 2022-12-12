@@ -33,6 +33,15 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         assert_retrieve_hasNoSideEffectsOnEmptyCache(on: sut)
     }
     
+    func test_retrieve_deliversFailureOnRetrievalError() {
+        let stub = NSManagedObjectContext.alwaysFailingFetchStub()
+        stub.startIntercepting()
+
+        let sut = makeSUT()
+
+        expect(sut, toRetrieve: .failure(anyNSError))
+    }
+    
     func test_insert_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
