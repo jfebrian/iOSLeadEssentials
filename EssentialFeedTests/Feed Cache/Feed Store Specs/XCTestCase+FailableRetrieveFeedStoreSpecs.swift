@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-extension FailableDeleteFeedStoreSpecs where Self: XCTestCase {
+extension FailableRetrieveFeedStoreSpecs where Self: XCTestCase {
     func assert_retrieve_deliversFailureOnRetrievalError(
         on sut: FeedStore,
         file: StaticString = #file,
