@@ -168,9 +168,13 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
         line: UInt = #line
     ) -> CoreDataFeedStore {
         let storeBundle = Bundle(for: CoreDataFeedStore.self)
-        let storeURL = URL(fileURLWithPath: "/dev/null")
-        let sut = try! CoreDataFeedStore(storeURL: storeURL, bundle: storeBundle)
+        let sut = try! CoreDataFeedStore(storeURL: inMemoryStoreURL(), bundle: storeBundle)
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func inMemoryStoreURL() -> URL {
+        URL(fileURLWithPath: "/dev/null")
+            .appendingPathComponent("\(type(of: self)).store")
     }
 }
