@@ -21,11 +21,12 @@ extension FailableInsertFeedStoreSpecs where Self: XCTestCase {
     
     func assert_insert_hasNoSideEffectsOnInsertionError(
         on sut: FeedStore,
+        with currentCache: CachedFeed?,
         file: StaticString = #file,
         line: UInt = #line
     ) {
         insert(cache: makeCache(), to: sut)
         
-        expect(sut, toRetrieve: .success(.none), file: file, line: line)
+        expect(sut, toRetrieve: .success(currentCache), file: file, line: line)
     }
 }

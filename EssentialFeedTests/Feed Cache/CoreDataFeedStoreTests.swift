@@ -84,7 +84,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
         
         let sut = makeSUT()
         
-        assert_insert_hasNoSideEffectsOnInsertionError(on: sut)
+        assert_insert_hasNoSideEffectsOnInsertionError(on: sut, with: nil)
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
