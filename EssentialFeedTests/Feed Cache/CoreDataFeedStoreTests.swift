@@ -122,7 +122,16 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
         assert_delete_deliversErrorOnDeletionError(on: sut)
     }
     
-    func test_delete_hasNoSideEffectsOnDeletionError() {
+    func test_delete_hasNoSideEffectsOnDeletionError_onEmptyCache() {
+        let stub = NSManagedObjectContext.alwaysFailingSaveStub()
+        stub.startIntercepting()
+        
+        let sut = makeSUT()
+
+        assert_delete_hasNoSideEffectsOnDeletionError(on: sut, with: nil)
+    }
+    
+    func test_delete_hasNoSideEffectsOnDeletionError_onNonEmptyCache() {
         let stub = NSManagedObjectContext.alwaysFailingSaveStub()
         let cache = makeCache()
         let sut = makeSUT()
