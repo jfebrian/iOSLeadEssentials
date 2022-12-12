@@ -14,9 +14,7 @@ extension FailableInsertFeedStoreSpecs where Self: XCTestCase {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        let (feed, timestamp) = makeCache()
-        
-        let insertionError = insert(feed: feed, timestamp: timestamp, to: sut)
+        let insertionError = insert(cache: makeCache(), to: sut)
         
         XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error", file: file, line: line)
     }
@@ -26,9 +24,7 @@ extension FailableInsertFeedStoreSpecs where Self: XCTestCase {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        let (feed, timestamp) = makeCache()
-        
-        insert(feed: feed, timestamp: timestamp, to: sut)
+        insert(cache: makeCache(), to: sut)
         
         expect(sut, toRetrieve: .success(.none), file: file, line: line)
     }

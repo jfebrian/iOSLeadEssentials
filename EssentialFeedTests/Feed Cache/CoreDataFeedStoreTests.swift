@@ -113,10 +113,9 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
     
     func test_delete_deliversErrorOnDeletionError() {
         let stub = NSManagedObjectContext.alwaysFailingSaveStub()
-        let (feed, timestamp) = makeCache()
         let sut = makeSUT()
 
-        insert(feed: feed, timestamp: timestamp, to: sut)
+        insert(cache: makeCache(), to: sut)
 
         stub.startIntercepting()
 
@@ -125,14 +124,14 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
         let stub = NSManagedObjectContext.alwaysFailingSaveStub()
-        let (feed, timestamp) = makeCache()
+        let cache = makeCache()
         let sut = makeSUT()
 
-        insert(feed: feed, timestamp: timestamp, to: sut)
+        insert(cache: cache, to: sut)
 
         stub.startIntercepting()
 
-        assert_delete_hasNoSideEffectsOnDeletionError(on: sut, with: CachedFeed(feed: feed, timestamp: timestamp))
+        assert_delete_hasNoSideEffectsOnDeletionError(on: sut, with: cache)
     }
 
     func test_storeSideEffects_runSerially() {
