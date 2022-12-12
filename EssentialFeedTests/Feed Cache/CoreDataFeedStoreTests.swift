@@ -42,6 +42,15 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
         expect(sut, toRetrieve: .failure(anyNSError))
     }
     
+    func test_retrieve_hasNoSideEffectsOnRetrievalError() {
+        let stub = NSManagedObjectContext.alwaysFailingFetchStub()
+        stub.startIntercepting()
+
+        let sut = makeSUT()
+
+        expect(sut, toRetrieveTwice: .failure(anyNSError))
+    }
+    
     func test_insert_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
