@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
+final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieveFeedStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
@@ -39,7 +39,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
 
         let sut = makeSUT()
 
-        expect(sut, toRetrieve: .failure(anyNSError))
+        assert_retrieve_deliversFailureOnRetrievalError(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnRetrievalError() {
@@ -48,7 +48,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs {
 
         let sut = makeSUT()
 
-        expect(sut, toRetrieveTwice: .failure(anyNSError))
+        assert_retrieve_hasNoSideEffectsOnRetrievalError(on: sut)
     }
     
     func test_insert_deliversNoErrorOnEmptyCache() {
