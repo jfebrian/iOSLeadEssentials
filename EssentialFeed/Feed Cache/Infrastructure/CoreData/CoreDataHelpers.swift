@@ -14,22 +14,18 @@ extension NSPersistentContainer {
     }
     
     static func load(
-        modelName name: String,
-        url: URL,
-        in bundle: Bundle
+        name: String,
+        model: NSManagedObjectModel,
+        url: URL
     ) throws -> NSPersistentContainer {
-        guard let model = NSManagedObjectModel.with(name: name, in: bundle) else {
-            throw LoadingError.modelNotFound
-        }
-        
         let description = NSPersistentStoreDescription(url: url)
         let container = NSPersistentContainer(name: name, managedObjectModel: model)
         container.persistentStoreDescriptions = [description]
-        
+
         var loadError: Swift.Error?
         container.loadPersistentStores { loadError = $1 }
-        try loadError.map { throw LoadingError.failedToLoadPersistentStores($0) }
-        
+        try loadError.map { throw $0 }
+
         return container
     }
 }
@@ -39,5 +35,14 @@ private extension NSManagedObjectModel {
         return bundle
             .url(forResource: name, withExtension: "momd")
             .flatMap(NSManagedObjectModel.init(contentsOf:))
+    }
+}
+
+extension NSManagedObjectModel {
+    convenience init?(name: String, in bundle: Bundle) {
+        guard let momd = bundle.url(forResource: name, withExtension: "momd") else {
+            return nil
+        }
+        self.init(contentsOf: momd)
     }
 }
