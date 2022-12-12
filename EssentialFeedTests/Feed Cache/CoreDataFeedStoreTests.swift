@@ -154,6 +154,24 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
 
         assert_delete_hasNoSideEffectsOnDeletionError(on: sut, with: cache)
     }
+    
+    func test_delete_removesAllObjects() throws {
+        let store = makeSUT()
+
+        insert(cache: makeCache(), to: store)
+
+        deleteCache(from: store)
+
+        let context = try NSPersistentContainer.load(
+            name: CoreDataFeedStore.modelName,
+            model: XCTUnwrap(CoreDataFeedStore.model),
+            url: inMemoryStoreURL()
+        ).viewContext
+
+        let existingObjects = try context.allExistingObjects()
+
+        XCTAssertEqual(existingObjects, [], "found orphaned objects in Core Data")
+    }
 
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()

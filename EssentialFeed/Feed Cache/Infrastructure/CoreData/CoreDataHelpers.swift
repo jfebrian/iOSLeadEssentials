@@ -7,7 +7,7 @@
 
 import CoreData
 
-extension NSPersistentContainer {
+public extension NSPersistentContainer {
     static func load(
         name: String,
         model: NSManagedObjectModel,
