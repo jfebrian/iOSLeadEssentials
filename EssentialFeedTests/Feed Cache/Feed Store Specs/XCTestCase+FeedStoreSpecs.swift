@@ -16,7 +16,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        expect(sut, toRetrieve: .empty, file: file, line: line)
+        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
     }
     
     func assert_retrieve_hasNoSideEffectsOnEmptyCache(
@@ -24,7 +24,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        expect(sut, toRetrieveTwice: .empty, file: file, line: line)
+        expect(sut, toRetrieveTwice: .success(.empty), file: file, line: line)
     }
     
     func assert_retrieve_deliversFoundValuesOnNonEmptyCache(
@@ -37,7 +37,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         
         insert(feed: feed, timestamp: timestamp, to: sut)
         
-        expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp), file: file, line: line)
+        expect(sut, toRetrieve: .success(.found(feed: feed, timestamp: timestamp)), file: file, line: line)
     }
     
     func assert_retrieve_hasNoSideEffectsOnNonEmptyCache(
@@ -49,7 +49,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         
         insert(feed: feed, timestamp: timestamp, to: sut)
         
-        expect(sut, toRetrieveTwice: .found(feed: feed, timestamp: timestamp), file: file, line: line)
+        expect(sut, toRetrieveTwice: .success(.found(feed: feed, timestamp: timestamp)), file: file, line: line)
     }
     
     func assert_insert_deliversNoErrorOnEmptyCache(
@@ -84,7 +84,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         let (latestFeed, latestTimestamp) = makeCache()
         insert(feed: latestFeed, timestamp: latestTimestamp, to: sut)
         
-        expect(sut, toRetrieve: .found(feed: latestFeed, timestamp: latestTimestamp), file: file, line: line)
+        expect(sut, toRetrieve: .success(.found(feed: latestFeed, timestamp: latestTimestamp)), file: file, line: line)
     }
     
     func assert_delete_deliversNoErrorOnEmptyCache(
@@ -104,7 +104,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
     ) {
         deleteCache(from: sut)
         
-        expect(sut, toRetrieve: .empty, file: file, line: line)
+        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
     }
     
     func assert_delete_deliversNoErrorOnNonEmptyCache(
@@ -128,7 +128,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
         
         deleteCache(from: sut)
         
-        expect(sut, toRetrieve: .empty, file: file, line: line)
+        expect(sut, toRetrieve: .success(.empty), file: file, line: line)
     }
     
     func assert_storeSideEffects_runSerially(
@@ -196,7 +196,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
     
     func expect(
         _ sut: FeedStore,
-        toRetrieve expectedResult: RetriveCachedFeedResult,
+        toRetrieve expectedResult: RetrieveCachedFeedResult,
         file: StaticString = #file,
         line: UInt = #line
     ) {
@@ -204,10 +204,10 @@ extension FeedStoreSpecs where Self: XCTestCase {
         
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
-            case (.empty, .empty),
+            case (.success(.empty), .success(.empty)),
                  (.failure, .failure):
                 break
-            case let (.found(expectedFeed, expectedTimestamp), .found(retrievedFeed, retrievedTimestamp)):
+            case let (.success(.found(expectedFeed, expectedTimestamp)), .success(.found(retrievedFeed, retrievedTimestamp))):
                 XCTAssertEqual(expectedFeed, retrievedFeed, file: file, line: line)
                 XCTAssertEqual(expectedTimestamp, retrievedTimestamp, file: file, line: line)
             default:
@@ -225,7 +225,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
     
     func expect(
         _ sut: FeedStore,
-        toRetrieveTwice expectedResult: RetriveCachedFeedResult,
+        toRetrieveTwice expectedResult: RetrieveCachedFeedResult,
         file: StaticString = #file,
         line: UInt = #line
     ) {
