@@ -34,9 +34,9 @@ public final class CoreDataFeedStore: FeedStore {
         perform { context in
             do {
                 try ManagedCache.insert(feed: feed, timestamp: timestamp, to: context)
-                completion(nil)
+                completion(.success(()))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }
@@ -45,9 +45,9 @@ public final class CoreDataFeedStore: FeedStore {
         perform { context in
             do {
                 try ManagedCache.delete(in: context)
-                completion(nil)
+                completion(.success(()))
             } catch {
-                completion(error)
+                completion(.failure(error))
             }
         }
     }

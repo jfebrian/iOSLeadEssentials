@@ -53,7 +53,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         let deletionError = anyNSError
         
-        expect(sut, toCompleteWithResult: deletionError) {
+        expect(sut, toCompleteWithError: deletionError) {
             store.completeDeletion(with: deletionError)
         }
     }
@@ -62,7 +62,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
         let (sut, store) = makeSUT()
         let insertionError = anyNSError
         
-        expect(sut, toCompleteWithResult: insertionError) {
+        expect(sut, toCompleteWithError: insertionError) {
             store.completeDeletionSuccessfully()
             store.completeInsertion(with: insertionError)
         }
@@ -71,7 +71,7 @@ final class CacheFeedUseCaseTests: XCTestCase {
     func test_save_succeeds_whenInsertionSucceed() {
         let (sut, store) = makeSUT()
         
-        expect(sut, toCompleteWithResult: nil) {
+        expect(sut, toCompleteWithError: nil) {
             store.completeDeletionSuccessfully()
             store.completeInsertionSuccessfully()
         }
@@ -108,23 +108,23 @@ final class CacheFeedUseCaseTests: XCTestCase {
     
     private func expect(
         _ sut: LocalFeedLoader,
-        toCompleteWithResult expectedResult: NSError?,
+        toCompleteWithError expectedError: NSError?,
         when action: () -> Void,
         file: StaticString = #file,
         line: UInt = #line
     ) {
         let exp = expectation(description: "Wait for save completion")
         
-        var receivedResult: LocalFeedLoader.SaveResult = nil
+        var receivedError: Error?
         sut.save(uniqueImageFeed().models) { result in
-            receivedResult = result
+            if case let .failure(error) = result { receivedError = error }
             exp.fulfill()
         }
         
         action()
         waitForExpectations(timeout: 0.1)
         
-        XCTAssertEqual(receivedResult as NSError?, expectedResult, file: file, line: line)
+        XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
     }
     
     private func makeSUT(
