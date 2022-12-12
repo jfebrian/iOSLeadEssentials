@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieveFeedStoreSpecs, FailableInsertFeedStoreSpecs {
+final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieveFeedStoreSpecs, FailableInsertFeedStoreSpecs, FailableDeleteFeedStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
@@ -120,9 +120,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieve
 
         stub.startIntercepting()
 
-        let deletionError = deleteCache(from: sut)
-
-        XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
+        assert_delete_deliversErrorOnDeletionError(on: sut)
     }
     
     func test_delete_hasNoSideEffectsOnDeletionError() {
@@ -134,9 +132,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieve
 
         stub.startIntercepting()
 
-        deleteCache(from: sut)
-
-        expect(sut, toRetrieve: .success(CachedFeed(feed: feed, timestamp: timestamp)))
+        assert_delete_hasNoSideEffectsOnDeletionError(on: sut, with: CachedFeed(feed: feed, timestamp: timestamp))
     }
 
     func test_storeSideEffects_runSerially() {
