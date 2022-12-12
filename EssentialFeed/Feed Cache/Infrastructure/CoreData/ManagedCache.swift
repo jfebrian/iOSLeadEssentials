@@ -26,7 +26,12 @@ extension ManagedCache {
     }
     
     static func delete(in context: NSManagedObjectContext) throws {
-        try find(in: context).map(context.delete(_:)).map(context.save)
+        do {
+            try find(in: context).map(context.delete(_:)).map(context.save)
+        } catch {
+            context.rollback()
+            throw error
+        }
     }
     
     static func insert(

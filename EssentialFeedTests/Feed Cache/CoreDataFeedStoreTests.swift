@@ -125,6 +125,20 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieve
         XCTAssertNotNil(deletionError, "Expected cache deletion to fail")
     }
     
+    func test_delete_hasNoSideEffectsOnDeletionError() {
+        let stub = NSManagedObjectContext.alwaysFailingSaveStub()
+        let (feed, timestamp) = makeCache()
+        let sut = makeSUT()
+
+        insert(feed: feed, timestamp: timestamp, to: sut)
+
+        stub.startIntercepting()
+
+        deleteCache(from: sut)
+
+        expect(sut, toRetrieve: .success(CachedFeed(feed: feed, timestamp: timestamp)))
+    }
+
     func test_storeSideEffects_runSerially() {
         let sut = makeSUT()
         
