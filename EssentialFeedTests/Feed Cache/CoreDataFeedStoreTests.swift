@@ -81,6 +81,18 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieve
         XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
     }
     
+    func test_insert_hasNoSideEffectsOnInsertionError() {
+        let stub = NSManagedObjectContext.alwaysFailingSaveStub()
+        stub.startIntercepting()
+        
+        let (feed, timestamp) = makeCache()
+        let sut = makeSUT()
+        
+        insert(feed: feed, timestamp: timestamp, to: sut)
+        
+        expect(sut, toRetrieve: .success(.none))
+    }
+    
     func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         

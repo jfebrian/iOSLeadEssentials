@@ -34,11 +34,16 @@ extension ManagedCache {
         timestamp: Date,
         to context: NSManagedObjectContext
     ) throws {
-        let managedCache = try ManagedCache.newUniqueInstance(in: context)
-        managedCache.timestamp = timestamp
-        managedCache.feed = NSOrderedSet(array: feed.manageFeed(in: context))
-        
-        try context.save()
+        do {
+            let managedCache = try ManagedCache.newUniqueInstance(in: context)
+            managedCache.timestamp = timestamp
+            managedCache.feed = NSOrderedSet(array: feed.manageFeed(in: context))
+            
+            try context.save()
+        } catch {
+            context.rollback()
+            throw error
+        }
     }
     
     static private func newUniqueInstance(in context: NSManagedObjectContext) throws -> ManagedCache {
