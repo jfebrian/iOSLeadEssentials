@@ -69,6 +69,18 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieve
         assert_insert_overridesPreviouslyInsertedCacheValues(on: sut)
     }
     
+    func test_insert_deliversErrorOnInsertionError() {
+        let stub = NSManagedObjectContext.alwaysFailingSaveStub()
+        stub.startIntercepting()
+        
+        let (feed, timestamp) = makeCache()
+        let sut = makeSUT()
+        
+        let insertionError = insert(feed: feed, timestamp: timestamp, to: sut)
+        
+        XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
+    }
+    
     func test_delete_deliversNoErrorOnEmptyCache() {
         let sut = makeSUT()
         
