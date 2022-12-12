@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieveFeedStoreSpecs {
+final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieveFeedStoreSpecs, FailableInsertFeedStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
@@ -73,24 +73,18 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieve
         let stub = NSManagedObjectContext.alwaysFailingSaveStub()
         stub.startIntercepting()
         
-        let (feed, timestamp) = makeCache()
         let sut = makeSUT()
         
-        let insertionError = insert(feed: feed, timestamp: timestamp, to: sut)
-        
-        XCTAssertNotNil(insertionError, "Expected cache insertion to fail with an error")
+        assert_insert_deliversErrorOnInsertionError(on: sut)
     }
     
     func test_insert_hasNoSideEffectsOnInsertionError() {
         let stub = NSManagedObjectContext.alwaysFailingSaveStub()
         stub.startIntercepting()
         
-        let (feed, timestamp) = makeCache()
         let sut = makeSUT()
         
-        insert(feed: feed, timestamp: timestamp, to: sut)
-        
-        expect(sut, toRetrieve: .success(.none))
+        assert_insert_hasNoSideEffectsOnInsertionError(on: sut)
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
