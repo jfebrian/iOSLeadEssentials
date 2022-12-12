@@ -8,7 +8,7 @@
 import XCTest
 import EssentialFeed
 
-final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableRetrieveFeedStoreSpecs, FailableInsertFeedStoreSpecs, FailableDeleteFeedStoreSpecs {
+final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStoreSpecs {
     func test_retrieve_deliversEmptyOnEmptyCache() {
         let sut = makeSUT()
         
