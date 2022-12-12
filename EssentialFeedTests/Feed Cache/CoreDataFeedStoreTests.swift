@@ -78,13 +78,25 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
         assert_insert_deliversErrorOnInsertionError(on: sut)
     }
     
-    func test_insert_hasNoSideEffectsOnInsertionError() {
+    func test_insert_hasNoSideEffectsOnInsertionError_onEmptyCache() {
         let stub = NSManagedObjectContext.alwaysFailingSaveStub()
         stub.startIntercepting()
         
         let sut = makeSUT()
         
         assert_insert_hasNoSideEffectsOnInsertionError(on: sut, with: nil)
+    }
+    
+    func test_insert_hasNoSideEffectsOnInsertionError_onNonEmptyCache() {
+        let stub = NSManagedObjectContext.alwaysFailingSaveStub()
+        let cache = makeCache()
+        let sut = makeSUT()
+
+        insert(cache: cache, to: sut)
+        
+        stub.startIntercepting()
+        
+        assert_insert_hasNoSideEffectsOnInsertionError(on: sut, with: cache)
     }
     
     func test_delete_deliversNoErrorOnEmptyCache() {
