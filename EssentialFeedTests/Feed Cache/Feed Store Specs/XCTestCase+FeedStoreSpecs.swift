@@ -196,7 +196,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
     
     func expect(
         _ sut: FeedStore,
-        toRetrieve expectedResult: RetrievalResult,
+        toRetrieve expectedResult: FeedStore.RetrievalResult,
         file: StaticString = #file,
         line: UInt = #line
     ) {
@@ -225,7 +225,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
     
     func expect(
         _ sut: FeedStore,
-        toRetrieveTwice expectedResult: RetrievalResult,
+        toRetrieveTwice expectedResult: FeedStore.RetrievalResult,
         file: StaticString = #file,
         line: UInt = #line
     ) {
