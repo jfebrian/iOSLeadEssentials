@@ -22,6 +22,7 @@
 		FC29D0B9294031C30063F8DB /* ValidateFeedCacheUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29D0B8294031C30063F8DB /* ValidateFeedCacheUseCaseTests.swift */; };
 		FC29D0BB294033E20063F8DB /* FeedCacheTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29D0BA294033E20063F8DB /* FeedCacheTestHelpers.swift */; };
 		FC29D0BD29403B590063F8DB /* FeedCachePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC29D0BC29403B590063F8DB /* FeedCachePolicy.swift */; };
+		FC4C1BA42984F721009DF7E6 /* FeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4C1BA32984F721009DF7E6 /* FeedImageCell.swift */; };
 		FC528BC4294731430047C1CB /* NSManagedObjectContext+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC528BC3294731430047C1CB /* NSManagedObjectContext+Stub.swift */; };
 		FC528BC929473ED00047C1CB /* NSManagedObjectContext+AllExistingObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC528BC829473ED00047C1CB /* NSManagedObjectContext+AllExistingObjects.swift */; };
 		FC528BCB29473F270047C1CB /* NSEntityDescription+Verify.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC528BCA29473F270047C1CB /* NSEntityDescription+Verify.swift */; };
@@ -128,6 +129,7 @@
 		FC29D0B8294031C30063F8DB /* ValidateFeedCacheUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateFeedCacheUseCaseTests.swift; sourceTree = "<group>"; };
 		FC29D0BA294033E20063F8DB /* FeedCacheTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCacheTestHelpers.swift; sourceTree = "<group>"; };
 		FC29D0BC29403B590063F8DB /* FeedCachePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCachePolicy.swift; sourceTree = "<group>"; };
+		FC4C1BA32984F721009DF7E6 /* FeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageCell.swift; sourceTree = "<group>"; };
 		FC528BC3294731430047C1CB /* NSManagedObjectContext+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Stub.swift"; sourceTree = "<group>"; };
 		FC528BC829473ED00047C1CB /* NSManagedObjectContext+AllExistingObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+AllExistingObjects.swift"; sourceTree = "<group>"; };
 		FC528BCA29473F270047C1CB /* NSEntityDescription+Verify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEntityDescription+Verify.swift"; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				FC5B8919297D154600612AA0 /* FeedViewController.swift */,
+				FC4C1BA32984F721009DF7E6 /* FeedImageCell.swift */,
 			);
 			path = EssentialFeediOS;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC5B891A297D154600612AA0 /* FeedViewController.swift in Sources */,
+				FC4C1BA42984F721009DF7E6 /* FeedImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,6 +853,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -906,6 +911,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
