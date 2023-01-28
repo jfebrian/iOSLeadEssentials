@@ -165,7 +165,6 @@
 		FC73AA122936394300C44954 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
 		FC81EF6C297D03530010DFB7 /* EssentialFeediOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssentialFeediOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC81EF73297D03530010DFB7 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC81EF85297D08B00010DFB7 /* Specs.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Specs.md; sourceTree = "<group>"; };
 		FC81EF86297D09400010DFB7 /* FeedViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewControllerTests.swift; sourceTree = "<group>"; };
 		FC847365294596FE00377009 /* FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStoreSpecs.swift; sourceTree = "<group>"; };
 		FC8473672945976500377009 /* XCTestCase+FeedStoreSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FeedStoreSpecs.swift"; sourceTree = "<group>"; };
@@ -411,7 +410,6 @@
 		FC81EF77297D03540010DFB7 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				FC81EF85297D08B00010DFB7 /* Specs.md */,
 				FCCC70C229854DA500ACE4DE /* Helpers */,
 				FCCC70CD29854E3E00ACE4DE /* Controllers */,
 			);
