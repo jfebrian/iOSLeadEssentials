@@ -3,7 +3,7 @@
 [V] Load feed automatically when view is presented
 [V] Allow customer to manually reload feed (pull to refresh)
 [V] Show a loading indicator while loading feed
-[ ] Render all loaded feed items (location, image, description)
+[V] Render all loaded feed items (location, image, description)
 [ ] Image loading experience
     [V] Load when image view is visible (on screen)
     [V] Cancel when image view is out of screen
