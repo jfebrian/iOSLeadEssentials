@@ -4,9 +4,9 @@
 [V] Allow customer to manually reload feed (pull to refresh)
 [V] Show a loading indicator while loading feed
 [V] Render all loaded feed items (location, image, description)
-[ ] Image loading experience
+[V] Image loading experience
     [V] Load when image view is visible (on screen)
     [V] Cancel when image view is out of screen
     [V] Show a loading indicator while loading image (shimmer)
     [V] Option to retry on image download error
-    [ ] Preload when image view is near visible
+    [V] Preload when image view is near visible
