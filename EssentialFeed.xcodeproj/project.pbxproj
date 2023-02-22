@@ -200,6 +200,7 @@
 		FCCB927429A60ADC00B74DB6 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
 		FCCB927829A60BC300B74DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
 		FCCB927A29A60BF000B74DB6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Feed.strings"; sourceTree = "<group>"; };
+		FCCB927C29A60C6E00B74DB6 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Feed.strings; sourceTree = "<group>"; };
 		FCCC70C329854DA500ACE4DE /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
 		FCCC70C429854DA500ACE4DE /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		FCCC70C529854DA500ACE4DE /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -729,6 +730,7 @@
 			knownRegions = (
 				en,
 				"pt-BR",
+				el,
 			);
 			mainGroup = FC73A9E62936317B00C44954;
 			productRefGroup = FC73A9F12936317B00C44954 /* Products */;
@@ -942,6 +944,7 @@
 			children = (
 				FCCB927829A60BC300B74DB6 /* en */,
 				FCCB927A29A60BF000B74DB6 /* pt-BR */,
+				FCCB927C29A60C6E00B74DB6 /* el */,
 			);
 			name = Feed.strings;
 			sourceTree = "<group>";
