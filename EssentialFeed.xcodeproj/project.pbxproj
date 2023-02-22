@@ -65,8 +65,8 @@
 		FCCB926D29A5FC4700B74DB6 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926C29A5FC4700B74DB6 /* Feed.xcassets */; };
 		FCCB926F29A6058B00B74DB6 /* UITableView+DequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB926E29A6058B00B74DB6 /* UITableView+DequeueCell.swift */; };
 		FCCB927129A6066F00B74DB6 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927029A6066F00B74DB6 /* UIImageView+Animations.swift */; };
-		FCCB927329A6095800B74DB6 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCCB927229A6095800B74DB6 /* Feed.strings */; };
 		FCCB927529A60ADC00B74DB6 /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927429A60ADC00B74DB6 /* FeedViewControllerTests+Localization.swift */; };
+		FCCB927729A60BC300B74DB6 /* Feed.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCCB927929A60BC300B74DB6 /* Feed.strings */; };
 		FCCC70C729854DA500ACE4DE /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70C329854DA500ACE4DE /* UIButton+TestHelpers.swift */; };
 		FCCC70C829854DA500ACE4DE /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70C429854DA500ACE4DE /* UIImage+TestHelpers.swift */; };
 		FCCC70C929854DA500ACE4DE /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70C529854DA500ACE4DE /* UIControl+TestHelpers.swift */; };
@@ -197,8 +197,8 @@
 		FCCB926C29A5FC4700B74DB6 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
 		FCCB926E29A6058B00B74DB6 /* UITableView+DequeueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+DequeueCell.swift"; sourceTree = "<group>"; };
 		FCCB927029A6066F00B74DB6 /* UIImageView+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Animations.swift"; sourceTree = "<group>"; };
-		FCCB927229A6095800B74DB6 /* Feed.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Feed.strings; sourceTree = "<group>"; };
 		FCCB927429A60ADC00B74DB6 /* FeedViewControllerTests+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Localization.swift"; sourceTree = "<group>"; };
+		FCCB927829A60BC300B74DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Feed.strings; sourceTree = "<group>"; };
 		FCCC70C329854DA500ACE4DE /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
 		FCCC70C429854DA500ACE4DE /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		FCCC70C529854DA500ACE4DE /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
@@ -533,7 +533,7 @@
 				FCCC70E82985984F00ACE4DE /* FeedPresenter.swift */,
 				FCB139C12985AF7600E3C79B /* FeedViewModel.swift */,
 				FCB139C32985AF8200E3C79B /* FeedLoadingViewModel.swift */,
-				FCCB927229A6095800B74DB6 /* Feed.strings */,
+				FCCB927929A60BC300B74DB6 /* Feed.strings */,
 			);
 			path = FeedPresentation;
 			sourceTree = "<group>";
@@ -773,7 +773,7 @@
 			files = (
 				FCCB926B29A5FBED00B74DB6 /* Feed.storyboard in Resources */,
 				FCCB926D29A5FC4700B74DB6 /* Feed.xcassets in Resources */,
-				FCCB927329A6095800B74DB6 /* Feed.strings in Resources */,
+				FCCB927729A60BC300B74DB6 /* Feed.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +934,17 @@
 			targetProxy = FCE1EE93293B172600E1B081 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCCB927929A60BC300B74DB6 /* Feed.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCCB927829A60BC300B74DB6 /* en */,
+			);
+			name = Feed.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FC06B99D2945B96D00296005 /* Debug */ = {
