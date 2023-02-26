@@ -65,7 +65,6 @@ public final class FeedViewController: UITableViewController, UITableViewDataSou
     }
 }
 
-
 extension FeedViewController: FeedLoadingView {
     func display(_ viewModel: FeedLoadingViewModel) {
         if viewModel.isLoading {
@@ -76,3 +75,8 @@ extension FeedViewController: FeedLoadingView {
     }
 }
 
+extension FeedViewController: FeedErrorView {
+    func display(_ viewModel: FeedErrorViewModel) {
+        errorView.message = viewModel.message
+    }
+}
