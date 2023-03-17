@@ -75,7 +75,7 @@ final class FeedImagePresenterTests: XCTestCase {
     }
     
     func test_didFinishLoadingImageData_displaysRetryOnFailedImageTransformation() {
-        let (sut, view) = makeSUT(imageTransformer: { _ in nil })
+        let (sut, view) = makeSUT(imageTransformer: failedImageTransformation)
         let image = uniqueImage()
 
         sut.didFinishLoadingImageData(with: Data(), for: image)
@@ -101,6 +101,10 @@ final class FeedImagePresenterTests: XCTestCase {
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
+    }
+    
+    private var failedImageTransformation: (Data) -> Any? {
+        { _ in nil }
     }
 
     private class ViewSpy: FeedImageView {
