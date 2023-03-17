@@ -68,6 +68,7 @@
 		FCBF15DC29C4987D0074AB5F /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15DB29C4987D0074AB5F /* FeedImagePresenterTests.swift */; };
 		FCBF15DE29C49AF90074AB5F /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15DD29C49AF90074AB5F /* FeedImagePresenter.swift */; };
 		FCBF15E029C49B400074AB5F /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15DF29C49B400074AB5F /* FeedImageViewModel.swift */; };
+		FCBF15E129C4B4240074AB5F /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70D92985508300ACE4DE /* FeedImageDataLoader.swift */; };
 		FCC079E029AB5A640078677E /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC079DF29AB5A640078677E /* UIRefreshControl+Helpers.swift */; };
 		FCCB926B29A5FBED00B74DB6 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926A29A5FBED00B74DB6 /* Feed.storyboard */; };
 		FCCB926D29A5FC4700B74DB6 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926C29A5FC4700B74DB6 /* Feed.xcassets */; };
@@ -83,7 +84,6 @@
 		FCCC70D229854EE100ACE4DE /* FeedImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70D129854EE100ACE4DE /* FeedImageCell+TestHelpers.swift */; };
 		FCCC70D429854F5600ACE4DE /* FeedImageViewControllerTests+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70D329854F5600ACE4DE /* FeedImageViewControllerTests+LoaderSpy.swift */; };
 		FCCC70D629854FC200ACE4DE /* FeedImageViewControllerTests+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70D529854FC200ACE4DE /* FeedImageViewControllerTests+Assertions.swift */; };
-		FCCC70DA2985508300ACE4DE /* FeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70D92985508300ACE4DE /* FeedImageDataLoader.swift */; };
 		FCCC70DE2985564A00ACE4DE /* FeedImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70DD2985564A00ACE4DE /* FeedImageCellController.swift */; };
 		FCCC70E1298558F000ACE4DE /* FeedUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70E0298558F000ACE4DE /* FeedUIComposer.swift */; };
 		FCD6B0382938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD6B0372938E57600C950A1 /* XCTestCase+MemoryLeakTracking.swift */; };
@@ -421,6 +421,7 @@
 			children = (
 				FC73AA0A2936320000C44954 /* FeedImage.swift */,
 				FC73AA0C2936321900C44954 /* FeedLoader.swift */,
+				FCCC70D92985508300ACE4DE /* FeedImageDataLoader.swift */,
 			);
 			path = "Feed Feature";
 			sourceTree = "<group>";
@@ -440,7 +441,6 @@
 		FC81EF6D297D03530010DFB7 /* EssentialFeediOS */ = {
 			isa = PBXGroup;
 			children = (
-				FCCC70D82985507A00ACE4DE /* FeedImageLoader */,
 				FCCC70D72985504F00ACE4DE /* FeedUI */,
 			);
 			path = EssentialFeediOS;
@@ -555,14 +555,6 @@
 				FCCC70CB29854E0900ACE4DE /* Controllers */,
 			);
 			path = FeedUI;
-			sourceTree = "<group>";
-		};
-		FCCC70D82985507A00ACE4DE /* FeedImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				FCCC70D92985508300ACE4DE /* FeedImageDataLoader.swift */,
-			);
-			path = FeedImageLoader;
 			sourceTree = "<group>";
 		};
 		FCCC70DF298558E400ACE4DE /* Composers */ = {
@@ -868,6 +860,7 @@
 				FC06B98E2945B83600296005 /* ManagedCache.swift in Sources */,
 				FC8473732945A69000377009 /* CoreDataFeedStore.swift in Sources */,
 				FCBF15D929C496DA0074AB5F /* FeedErrorViewModel.swift in Sources */,
+				FCBF15E129C4B4240074AB5F /* FeedImageDataLoader.swift in Sources */,
 				FCBF15D729C496940074AB5F /* FeedLoadingViewModel.swift in Sources */,
 				FCBF15DE29C49AF90074AB5F /* FeedImagePresenter.swift in Sources */,
 				FC06B9902945B83D00296005 /* ManagedFeedImage.swift in Sources */,
@@ -909,7 +902,6 @@
 			files = (
 				FCC079E029AB5A640078677E /* UIRefreshControl+Helpers.swift in Sources */,
 				FCCB927129A6066F00B74DB6 /* UIImageView+Animations.swift in Sources */,
-				FCCC70DA2985508300ACE4DE /* FeedImageDataLoader.swift in Sources */,
 				FC4C1BA629851B6E009DF7E6 /* UIView+Shimmering.swift in Sources */,
 				FCCB926F29A6058B00B74DB6 /* UITableView+DequeueCell.swift in Sources */,
 				FCCB928129A6191800B74DB6 /* MainQueueDispatchDecorator.swift in Sources */,
