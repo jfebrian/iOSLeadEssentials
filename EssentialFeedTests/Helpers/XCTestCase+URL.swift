@@ -7,6 +7,4 @@
 
 import XCTest
 
-extension XCTestCase {
-    var anyURL: URL { URL(string: "http://any-url.com/")! }
-}
+var anyURL: URL { URL(string: "http://any-url.com/")! }
