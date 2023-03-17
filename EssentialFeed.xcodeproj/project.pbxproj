@@ -68,6 +68,8 @@
 		FCBF15D929C496DA0074AB5F /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15D829C496DA0074AB5F /* FeedErrorViewModel.swift */; };
 		FCBF15DA29C497F50074AB5F /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927E29A60CBB00B74DB6 /* FeedLocalizationTests.swift */; };
 		FCBF15DC29C4987D0074AB5F /* FeedImagePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15DB29C4987D0074AB5F /* FeedImagePresenterTests.swift */; };
+		FCBF15DE29C49AF90074AB5F /* FeedImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15DD29C49AF90074AB5F /* FeedImagePresenter.swift */; };
+		FCBF15E029C49B400074AB5F /* FeedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15DF29C49B400074AB5F /* FeedImageViewModel.swift */; };
 		FCC079E029AB5A640078677E /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC079DF29AB5A640078677E /* UIRefreshControl+Helpers.swift */; };
 		FCCB926B29A5FBED00B74DB6 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926A29A5FBED00B74DB6 /* Feed.storyboard */; };
 		FCCB926D29A5FC4700B74DB6 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926C29A5FC4700B74DB6 /* Feed.xcassets */; };
@@ -208,6 +210,8 @@
 		FCBF15D629C496940074AB5F /* FeedLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoadingViewModel.swift; sourceTree = "<group>"; };
 		FCBF15D829C496DA0074AB5F /* FeedErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedErrorViewModel.swift; sourceTree = "<group>"; };
 		FCBF15DB29C4987D0074AB5F /* FeedImagePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenterTests.swift; sourceTree = "<group>"; };
+		FCBF15DD29C49AF90074AB5F /* FeedImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImagePresenter.swift; sourceTree = "<group>"; };
+		FCBF15DF29C49B400074AB5F /* FeedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageViewModel.swift; sourceTree = "<group>"; };
 		FCC079DF29AB5A640078677E /* UIRefreshControl+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Helpers.swift"; sourceTree = "<group>"; };
 		FCCB926A29A5FBED00B74DB6 /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		FCCB926C29A5FC4700B74DB6 /* Feed.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Feed.xcassets; sourceTree = "<group>"; };
@@ -480,6 +484,8 @@
 		FCBF15D029C495480074AB5F /* Feed Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				FCBF15DD29C49AF90074AB5F /* FeedImagePresenter.swift */,
+				FCBF15DF29C49B400074AB5F /* FeedImageViewModel.swift */,
 				FCBF15D129C495570074AB5F /* FeedPresenter.swift */,
 				FCBF15D429C4965D0074AB5F /* FeedViewModel.swift */,
 				FCBF15D629C496940074AB5F /* FeedLoadingViewModel.swift */,
@@ -861,6 +867,7 @@
 				FC21F80D2937A97100EA7370 /* FeedItemsMapper.swift in Sources */,
 				FC73AA0D2936321900C44954 /* FeedLoader.swift in Sources */,
 				FC5E3895293F9C49002DEFB2 /* RemoteFeedItem.swift in Sources */,
+				FCBF15E029C49B400074AB5F /* FeedImageViewModel.swift in Sources */,
 				FC29D0BD29403B590063F8DB /* FeedCachePolicy.swift in Sources */,
 				FC73AA132936394300C44954 /* RemoteFeedLoader.swift in Sources */,
 				FC8473762945A85700377009 /* FeedStore.xcdatamodeld in Sources */,
@@ -876,6 +883,7 @@
 				FC8473732945A69000377009 /* CoreDataFeedStore.swift in Sources */,
 				FCBF15D929C496DA0074AB5F /* FeedErrorViewModel.swift in Sources */,
 				FCBF15D729C496940074AB5F /* FeedLoadingViewModel.swift in Sources */,
+				FCBF15DE29C49AF90074AB5F /* FeedImagePresenter.swift in Sources */,
 				FC06B9902945B83D00296005 /* ManagedFeedImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
