@@ -21,8 +21,6 @@ protocol FeedErrorView {
 }
 
 final class FeedPresenter {
-    typealias Observer<T> = (T) -> Void
-    
     private var feedView: FeedView
     private var loadingView: FeedLoadingView
     private let errorView: FeedErrorView
