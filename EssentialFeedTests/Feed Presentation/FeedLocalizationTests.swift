@@ -1,6 +1,6 @@
 //
 //  FeedLocalizationTests.swift
-//  EssentialFeediOSTests
+//  EssentialFeediTests
 //
 //  Created by Joanda Febrian on 22/02/23.
 //

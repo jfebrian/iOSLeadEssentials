@@ -66,13 +66,13 @@
 		FCBF15D529C4965D0074AB5F /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15D429C4965D0074AB5F /* FeedViewModel.swift */; };
 		FCBF15D729C496940074AB5F /* FeedLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15D629C496940074AB5F /* FeedLoadingViewModel.swift */; };
 		FCBF15D929C496DA0074AB5F /* FeedErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCBF15D829C496DA0074AB5F /* FeedErrorViewModel.swift */; };
+		FCBF15DA29C497F50074AB5F /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927E29A60CBB00B74DB6 /* FeedLocalizationTests.swift */; };
 		FCC079E029AB5A640078677E /* UIRefreshControl+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC079DF29AB5A640078677E /* UIRefreshControl+Helpers.swift */; };
 		FCCB926B29A5FBED00B74DB6 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926A29A5FBED00B74DB6 /* Feed.storyboard */; };
 		FCCB926D29A5FC4700B74DB6 /* Feed.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCCB926C29A5FC4700B74DB6 /* Feed.xcassets */; };
 		FCCB926F29A6058B00B74DB6 /* UITableView+DequeueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB926E29A6058B00B74DB6 /* UITableView+DequeueCell.swift */; };
 		FCCB927129A6066F00B74DB6 /* UIImageView+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927029A6066F00B74DB6 /* UIImageView+Animations.swift */; };
 		FCCB927529A60ADC00B74DB6 /* FeedViewControllerTests+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927429A60ADC00B74DB6 /* FeedViewControllerTests+Localization.swift */; };
-		FCCB927F29A60CBB00B74DB6 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927E29A60CBB00B74DB6 /* FeedLocalizationTests.swift */; };
 		FCCB928129A6191800B74DB6 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB928029A6191800B74DB6 /* MainQueueDispatchDecorator.swift */; };
 		FCCC70C729854DA500ACE4DE /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70C329854DA500ACE4DE /* UIButton+TestHelpers.swift */; };
 		FCCC70C829854DA500ACE4DE /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCC70C429854DA500ACE4DE /* UIImage+TestHelpers.swift */; };
@@ -448,7 +448,6 @@
 		FC81EF77297D03540010DFB7 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				FCCB927D29A60CB000B74DB6 /* FeedPresentation */,
 				FCCB927629A60B9C00B74DB6 /* FeedUI */,
 			);
 			path = EssentialFeediOSTests;
@@ -470,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				FCBF15C729C490320074AB5F /* FeedPresenterTests.swift */,
+				FCCB927E29A60CBB00B74DB6 /* FeedLocalizationTests.swift */,
 			);
 			path = "Feed Presentation";
 			sourceTree = "<group>";
@@ -504,14 +504,6 @@
 				FC81EF86297D09400010DFB7 /* FeedUIIntegrationTests.swift */,
 			);
 			path = FeedUI;
-			sourceTree = "<group>";
-		};
-		FCCB927D29A60CB000B74DB6 /* FeedPresentation */ = {
-			isa = PBXGroup;
-			children = (
-				FCCB927E29A60CBB00B74DB6 /* FeedLocalizationTests.swift */,
-			);
-			path = FeedPresentation;
 			sourceTree = "<group>";
 		};
 		FCCC70C229854DA500ACE4DE /* Helpers */ = {
@@ -900,6 +892,7 @@
 				FC8FC9CD2937BF45000E4E56 /* URLSessionHTTPClientTest.swift in Sources */,
 				FC5E388E293F86D8002DEFB2 /* CacheFeedUseCaseTests.swift in Sources */,
 				FCBF15C829C490320074AB5F /* FeedPresenterTests.swift in Sources */,
+				FCBF15DA29C497F50074AB5F /* FeedLocalizationTests.swift in Sources */,
 				FC29D0B129401AEA0063F8DB /* FeedStoreSpy.swift in Sources */,
 				FC29D0B5294024950063F8DB /* XCTestCase+NSError.swift in Sources */,
 				FC29D0AE29401A450063F8DB /* LoadFeedFromCacheUseCaseTests.swift in Sources */,
@@ -941,7 +934,6 @@
 			files = (
 				FC81EF87297D09400010DFB7 /* FeedUIIntegrationTests.swift in Sources */,
 				FCCC70D629854FC200ACE4DE /* FeedImageViewControllerTests+Assertions.swift in Sources */,
-				FCCB927F29A60CBB00B74DB6 /* FeedLocalizationTests.swift in Sources */,
 				FCCC70CA29854DA500ACE4DE /* UIRefreshControl+TestHelpers.swift in Sources */,
 				FC5B8918297D0D5700612AA0 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				FCCC70C729854DA500ACE4DE /* UIButton+TestHelpers.swift in Sources */,
