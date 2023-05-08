@@ -117,7 +117,7 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
         url: URL = anyURL,
         file: StaticString = #file,
         line: UInt = #line
-    ) -> (sut: RemoteFeedImageDataLoader, client: HTTPClientSpy) {
+    ) -> (sut: FeedImageDataLoader, client: HTTPClientSpy) {
         let client = HTTPClientSpy()
         let sut = RemoteFeedImageDataLoader(client: client)
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -130,7 +130,7 @@ final class RemoteFeedImageDataLoaderTests: XCTestCase {
     }
 
     private func expect(
-        _ sut: RemoteFeedImageDataLoader,
+        _ sut: FeedImageDataLoader,
         toCompleteWith expectedResult: FeedImageDataLoader.Result,
         when action: () -> Void,
         file: StaticString = #file,
