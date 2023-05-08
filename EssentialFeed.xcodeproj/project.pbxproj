@@ -13,6 +13,8 @@
 		16C12E1A2A09391A00A2B248 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E192A09391A00A2B248 /* HTTPURLResponse+StatusCode.swift */; };
 		16C12E1C2A09398200A2B248 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E1B2A09398200A2B248 /* URLProtocolStub.swift */; };
 		16C12E1E2A093A9900A2B248 /* LocalFeedImageDataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E1D2A093A9900A2B248 /* LocalFeedImageDataLoaderTests.swift */; };
+		16C12E202A0945B600A2B248 /* LocalFeedImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E1F2A0945B600A2B248 /* LocalFeedImageDataLoader.swift */; };
+		16C12E222A0945DE00A2B248 /* FeedImageDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E212A0945DE00A2B248 /* FeedImageDataStore.swift */; };
 		FC06B98C2945B7AD00296005 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */; };
 		FC06B98E2945B83600296005 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98D2945B83600296005 /* ManagedCache.swift */; };
 		FC06B9902945B83D00296005 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98F2945B83D00296005 /* ManagedFeedImage.swift */; };
@@ -159,6 +161,8 @@
 		16C12E192A09391A00A2B248 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		16C12E1B2A09398200A2B248 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolStub.swift; sourceTree = "<group>"; };
 		16C12E1D2A093A9900A2B248 /* LocalFeedImageDataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoaderTests.swift; sourceTree = "<group>"; };
+		16C12E1F2A0945B600A2B248 /* LocalFeedImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedImageDataLoader.swift; sourceTree = "<group>"; };
+		16C12E212A0945DE00A2B248 /* FeedImageDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataStore.swift; sourceTree = "<group>"; };
 		FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		FC06B98D2945B83600296005 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		FC06B98F2945B83D00296005 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				FC29D0BC29403B590063F8DB /* FeedCachePolicy.swift */,
 				FC5E3892293F9505002DEFB2 /* FeedStore.swift */,
 				FC5E3896293F9C69002DEFB2 /* LocalFeedImage.swift */,
+				16C12E1F2A0945B600A2B248 /* LocalFeedImageDataLoader.swift */,
+				16C12E212A0945DE00A2B248 /* FeedImageDataStore.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -876,6 +882,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C12E202A0945B600A2B248 /* LocalFeedImageDataLoader.swift in Sources */,
 				FC06B98C2945B7AD00296005 /* CoreDataHelpers.swift in Sources */,
 				FC21F80D2937A97100EA7370 /* FeedItemsMapper.swift in Sources */,
 				FC73AA0D2936321900C44954 /* FeedLoader.swift in Sources */,
@@ -891,6 +898,7 @@
 				FC5E3891293F94C6002DEFB2 /* LocalFeedLoader.swift in Sources */,
 				FC21F80B2937A94400EA7370 /* HTTPClient.swift in Sources */,
 				FC73AA0B2936320000C44954 /* FeedImage.swift in Sources */,
+				16C12E222A0945DE00A2B248 /* FeedImageDataStore.swift in Sources */,
 				FCBF15D229C495570074AB5F /* FeedPresenter.swift in Sources */,
 				FCD6B03C2938F79E00C950A1 /* URLSessionHTTPClient.swift in Sources */,
 				16C12E1A2A09391A00A2B248 /* HTTPURLResponse+StatusCode.swift in Sources */,
