@@ -197,8 +197,7 @@ final class CoreDataFeedStoreTests: XCTestCase, FeedStoreSpecs, FailableFeedStor
         file: StaticString = #file,
         line: UInt = #line
     ) -> CoreDataFeedStore {
-        let storeBundle = Bundle(for: CoreDataFeedStore.self)
-        let sut = try! CoreDataFeedStore(storeURL: inMemoryStoreURL(), bundle: storeBundle)
+        let sut = try! CoreDataFeedStore(storeURL: inMemoryStoreURL())
         trackForMemoryLeaks(sut, file: file, line: line)
         return sut
     }
