@@ -40,7 +40,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
         expect(sut, toCompleteWith: [failure(.connectivity)], when: {
             let clientError = NSError(domain: "Test", code: 0)
-            client.callAllCompletions(with: clientError)
+            client.complete(with: clientError)
         })
     }
 
@@ -54,7 +54,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
         expect(sut, toCompleteWith: expectedResult, when: {
             let json = makeItemsJSON([])
-            samples.forEach { client.callAllCompletions(withStatusCode: $0, data: json) }
+            samples.forEach { client.complete(withStatusCode: $0, data: json) }
         })
     }
 
@@ -63,7 +63,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
         expect(sut, toCompleteWith: [failure(.invalidData)], when: {
             let invalidJSON = Data("invalid json".utf8)
-            client.callAllCompletions(withStatusCode: 200, data: invalidJSON)
+            client.complete(withStatusCode: 200, data: invalidJSON)
         })
     }
 
@@ -72,7 +72,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
         expect(sut, toCompleteWith: [.success([])], when: {
             let emptyListJSON = makeItemsJSON([])
-            client.callAllCompletions(withStatusCode: 200, data: emptyListJSON)
+            client.complete(withStatusCode: 200, data: emptyListJSON)
         })
     }
 
@@ -95,7 +95,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 
         expect(sut, toCompleteWith: [.success(items)], when: {
             let json = makeItemsJSON([item1.json, item2.json])
-            client.callAllCompletions(withStatusCode: 200, data: json)
+            client.complete(withStatusCode: 200, data: json)
         })
     }
 
@@ -107,7 +107,7 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
         sut?.load { capturedResults.append($0) }
 
         sut = nil
-        client.callAllCompletions(withStatusCode: 200, data: makeItemsJSON([]))
+        client.complete(withStatusCode: 200, data: makeItemsJSON([]))
 
         XCTAssertTrue(capturedResults.isEmpty)
     }
@@ -184,39 +184,5 @@ final class LoadFeedFromRemoteUseCaseTests: XCTestCase {
     
     private func failure(_ error: RemoteFeedLoader.Error) -> LoadFeedResult {
         .failure(error)
-    }
-
-    private class HTTPClientSpy: HTTPClient {
-        private struct Task: HTTPClientTask {
-            func cancel() {}
-        }
-        
-        private var messages = [(url: URL, completion: (HTTPClientResult) -> Void)]()
-
-        var requestedURLs: [URL] { messages.map(\.url) }
-
-        func get(
-            from url: URL,
-            completion: @escaping (HTTPClientResult) -> Void
-        ) -> HTTPClientTask {
-            messages.append((url, completion))
-            return Task()
-        }
-
-        func callAllCompletions(with error: Error) {
-            messages.forEach { message in message.completion(.failure(error)) }
-        }
-
-        func callAllCompletions(withStatusCode code: Int, data: Data) {
-            messages.forEach { message in
-                let response = HTTPURLResponse(
-                    url: message.url,
-                    statusCode: code,
-                    httpVersion: nil,
-                    headerFields: nil
-                )!
-                message.completion(.success((data, response)))
-            }
-        }
     }
 }

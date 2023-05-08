@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		16C12E122A092A4600A2B248 /* FeedLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB927E29A60CBB00B74DB6 /* FeedLocalizationTests.swift */; };
+		16C12E152A092EB800A2B248 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E142A092EB800A2B248 /* HTTPClientSpy.swift */; };
 		FC06B98C2945B7AD00296005 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */; };
 		FC06B98E2945B83600296005 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98D2945B83600296005 /* ManagedCache.swift */; };
 		FC06B9902945B83D00296005 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98F2945B83D00296005 /* ManagedFeedImage.swift */; };
@@ -149,6 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16C12E142A092EB800A2B248 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		FC06B98D2945B83600296005 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		FC06B98F2945B83D00296005 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -286,6 +288,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16C12E132A092EAD00A2B248 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				16C12E142A092EB800A2B248 /* HTTPClientSpy.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FC06B9882945B74900296005 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +327,7 @@
 		FC21F80E2937AF2200EA7370 /* Feed API */ = {
 			isa = PBXGroup;
 			children = (
+				16C12E132A092EAD00A2B248 /* Helpers */,
 				FC73AA0F2936336300C44954 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				FC8FC9CC2937BF45000E4E56 /* URLSessionHTTPClientTest.swift */,
 				FCBF15E229C4B4730074AB5F /* RemoteFeedImageDataLoaderTests.swift */,
@@ -878,6 +889,7 @@
 				FCBF15DC29C4987D0074AB5F /* FeedImagePresenterTests.swift in Sources */,
 				FC8473682945976500377009 /* XCTestCase+FeedStoreSpecs.swift in Sources */,
 				FC29D0B7294025FC0063F8DB /* TestStubs.swift in Sources */,
+				16C12E152A092EB800A2B248 /* HTTPClientSpy.swift in Sources */,
 				FC8473712945A5FD00377009 /* CoreDataFeedStoreTests.swift in Sources */,
 				FC84736A29459D5400377009 /* XCTestCase+FailableRetrieveFeedStoreSpecs.swift in Sources */,
 				FC528BC4294731430047C1CB /* NSManagedObjectContext+Stub.swift in Sources */,
