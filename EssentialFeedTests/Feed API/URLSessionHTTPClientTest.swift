@@ -125,12 +125,12 @@ final class URLSessionHTTPClientTest: XCTestCase {
         _ values: (data: Data?, response: URLResponse?, error: Error?)?,
         taskHandler: (HTTPClientTask) -> Void = { _ in },
         line: UInt = #line
-    ) -> HTTPClientResult {
+    ) -> HTTPClient.Result {
         values.map { URLProtocolStub.stub(data: $0, response: $1, error: $2) }
         
         let exp = expectation(description: "Wait for completion")
 
-        var receivedResult: HTTPClientResult!
+        var receivedResult: HTTPClient.Result!
         taskHandler(makeSUT().get(from: anyURL) { result in
             receivedResult = result
             exp.fulfill()
