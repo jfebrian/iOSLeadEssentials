@@ -204,7 +204,6 @@ final class URLSessionHTTPClientTest: XCTestCase {
         override func stopLoading() {}
     }
     
-    private let anyData = Data("any data".utf8)
     private let anyError: Error = NSError(domain: "any error", code: 0)
     private let anyHTTPURLResponse = HTTPURLResponse()
     private var nonHTTPURLResponse: URLResponse {
