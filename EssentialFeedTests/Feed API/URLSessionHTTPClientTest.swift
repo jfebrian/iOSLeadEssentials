@@ -74,7 +74,11 @@ final class URLSessionHTTPClientTest: XCTestCase {
     }
     
     func test_cancelGetFromURLTask_cancelsURLRequest() {
+        let exp = expectation(description: "Wait for request")
+        URLProtocolStub.observeRequests { _ in exp.fulfill() }
+
         let receivedError = resultErrorFor(taskHandler: { $0.cancel() }) as NSError?
+        wait(for: [exp], timeout: 0.1)
         
         XCTAssertEqual(receivedError?.code, URLError.cancelled.rawValue)
     }
@@ -136,7 +140,7 @@ final class URLSessionHTTPClientTest: XCTestCase {
             exp.fulfill()
         })
         
-        waitForExpectations(timeout: 0.1)
+        wait(for: [exp], timeout: 0.1)
         
         return receivedResult
     }
