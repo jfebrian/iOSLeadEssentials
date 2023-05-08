@@ -14,21 +14,26 @@ public final class CoreDataFeedStore {
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
     
-    public struct ModelNotFound: Error {
-        public let modelName: String
+    enum StoreError: Error {
+        case modelNotFound
+        case failedToLoadPersistentContainer(Error)
     }
     
     public init(storeURL: URL) throws {
         guard let model = CoreDataFeedStore.model else {
-            throw ModelNotFound(modelName: CoreDataFeedStore.modelName)
+            throw StoreError.modelNotFound
         }
         
-        container = try NSPersistentContainer.load(
-            name: CoreDataFeedStore.modelName,
-            model: model,
-            url: storeURL
-        )
-        context = container.newBackgroundContext()
+        do {
+            container = try NSPersistentContainer.load(
+                name: CoreDataFeedStore.modelName,
+                model: model,
+                url: storeURL
+            )
+            context = container.newBackgroundContext()
+        } catch {
+            throw StoreError.failedToLoadPersistentContainer(error)
+        }
     }
     
     func perform(_ action: @escaping (NSManagedObjectContext) -> Void) {
