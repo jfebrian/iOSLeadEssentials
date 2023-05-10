@@ -32,14 +32,16 @@ extension LocalFeedImageDataLoader {
 }
 
 extension LocalFeedImageDataLoader: FeedImageDataLoader {
+    public typealias LoadResult = FeedImageDataLoader.Result
+    
     private final class LoadImageDataTask: FeedImageDataLoaderTask {
-        private var completion: ((FeedImageDataLoader.Result) -> Void)?
+        private var completion: ((LoadResult) -> Void)?
 
-        init(_ completion: @escaping (FeedImageDataLoader.Result) -> Void) {
+        init(_ completion: @escaping (LoadResult) -> Void) {
             self.completion = completion
         }
 
-        func complete(with result: FeedImageDataLoader.Result) {
+        func complete(with result: LoadResult) {
             completion?(result)
         }
 
@@ -59,7 +61,7 @@ extension LocalFeedImageDataLoader: FeedImageDataLoader {
 
     public func loadImageData(
         from url: URL,
-        completion: @escaping (FeedImageDataLoader.Result) -> Void
+        completion: @escaping (LoadResult) -> Void
     ) -> FeedImageDataLoaderTask {
         let task = LoadImageDataTask(completion)
         
