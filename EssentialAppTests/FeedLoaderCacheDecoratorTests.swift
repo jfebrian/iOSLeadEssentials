@@ -2,27 +2,9 @@
 
 import XCTest
 import EssentialFeed
+import EssentialApp
 
-final class FeedLoaderCacheDecorator: FeedLoader {
-    private let decoratee: FeedLoader
-    private let cache: FeedCache
-
-    init(decoratee: FeedLoader, cache: FeedCache) {
-        self.decoratee = decoratee
-        self.cache = cache
-    }
-
-    func load(completion: @escaping (LoadFeedResult) -> Void) {
-        decoratee.load { [weak self] result in
-            completion(result.map { feed in
-                self?.cache.save(feed) { _ in }
-                return feed
-            })
-        }
-    }
-}
-
-class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
+final class FeedLoaderCacheDecoratorTests: XCTestCase, FeedLoaderTestCase {
     func test_load_deliversFeedOnLoaderSuccess() {
         let feed = uniqueFeed()
         let sut = makeSUT(loaderResult: .success(feed))
