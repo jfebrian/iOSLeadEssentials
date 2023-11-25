@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		16743B282B11F60600B7C9E1 /* EssentialFeediOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC81EF6C297D03530010DFB7 /* EssentialFeediOS.framework */; };
 		16743B2F2B11F61400B7C9E1 /* FeedSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16743B2E2B11F61400B7C9E1 /* FeedSnapshotTests.swift */; };
+		16743B322B11F7CA00B7C9E1 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16743B312B11F7CA00B7C9E1 /* UIImage+TestHelpers.swift */; };
 		169493752B11D52A005F096F /* FeedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169493742B11D52A005F096F /* FeedCache.swift */; };
 		1694937F2B11D828005F096F /* FeedImageDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694937E2B11D828005F096F /* FeedImageDataCache.swift */; };
 		16C12E152A092EB800A2B248 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C12E142A092EB800A2B248 /* HTTPClientSpy.swift */; };
@@ -149,6 +150,7 @@
 /* Begin PBXFileReference section */
 		16743B242B11F60600B7C9E1 /* EssentialFeediOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeediOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16743B2E2B11F61400B7C9E1 /* FeedSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedSnapshotTests.swift; sourceTree = "<group>"; };
+		16743B312B11F7CA00B7C9E1 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		169493742B11D52A005F096F /* FeedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCache.swift; sourceTree = "<group>"; };
 		1694937E2B11D828005F096F /* FeedImageDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataCache.swift; sourceTree = "<group>"; };
 		16C12E142A092EB800A2B248 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
@@ -288,9 +290,18 @@
 		16743B252B11F60600B7C9E1 /* EssentialFeediOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				16743B302B11F7C100B7C9E1 /* Helpers */,
 				16743B2E2B11F61400B7C9E1 /* FeedSnapshotTests.swift */,
 			);
 			path = EssentialFeediOSTests;
+			sourceTree = "<group>";
+		};
+		16743B302B11F7C100B7C9E1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				16743B312B11F7CA00B7C9E1 /* UIImage+TestHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		16C12E132A092EAD00A2B248 /* Helpers */ = {
@@ -825,6 +836,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16743B2F2B11F61400B7C9E1 /* FeedSnapshotTests.swift in Sources */,
+				16743B322B11F7CA00B7C9E1 /* UIImage+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
