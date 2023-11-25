@@ -15,8 +15,10 @@ extension FeedUIIntegrationTests {
         isRendering feed: [FeedImage],
         file: StaticString = #file, line: UInt = #line
     ) {
-        
-        XCTAssertEqual(sut.numberOfRenderedFeedImageViews(), feed.count)
+        guard sut.numberOfRenderedFeedImageViews() == feed.count else {
+            return XCTFail("Expected \(feed.count) images, got \(sut.numberOfRenderedFeedImageViews()) instead.", file: file, line: line)
+        }
+
         feed.enumerated().forEach { index, image in
             assertThat(sut, hasViewConfiguredFor: image, at: index)
         }
