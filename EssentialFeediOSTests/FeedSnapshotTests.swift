@@ -1,30 +1,60 @@
 // Created by Joanda Febrian. All rights reserved.
 
 import XCTest
+import EssentialFeediOS
 
-final class FeedSnapshotTests: XCTestCase {
+class FeedSnapshotTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_emptyFeed() {
+        let sut = makeSUT()
+
+        sut.display(emptyFeed())
+
+        record(snapshot: sut.snapshot(), named: "EMPTY_FEED")
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    // MARK: - Helpers
+    private func makeSUT() -> FeedViewController {
+        let bundle = Bundle(for: FeedViewController.self)
+        let storyboard = UIStoryboard(name: "Feed", bundle: bundle)
+        let controller = storyboard.instantiateInitialViewController() as! FeedViewController
+        controller.loadViewIfNeeded()
+        return controller
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    private func emptyFeed() -> [FeedImageCellController] {
+        return []
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    private func record(snapshot: UIImage, named name: String, file: StaticString = #file, line: UInt = #line) {
+        guard let snapshotData = snapshot.pngData() else {
+            XCTFail("Failed to generate PNG data representation from snapshot", file: file, line: line)
+            return
+        }
+
+        let snapshotURL = URL(fileURLWithPath: String(describing: file))
+            .deletingLastPathComponent()
+            .appendingPathComponent("snapshots")
+            .appendingPathComponent("\(name).png")
+
+        do {
+            try FileManager.default.createDirectory(
+                at: snapshotURL.deletingLastPathComponent(),
+                withIntermediateDirectories: true
+            )
+
+            try snapshotData.write(to: snapshotURL)
+        } catch {
+            XCTFail("Failed to record snapshot with error: \(error)", file: file, line: line)
         }
     }
+}
 
+extension UIViewController {
+    func snapshot() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: view.bounds)
+        return renderer.image { action in
+            view.layer.render(in: action.cgContext)
+        }
+    }
 }
