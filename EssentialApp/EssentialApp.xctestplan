@@ -1,7 +1,7 @@
 {
   "configurations" : [
     {
-      "id" : "9DD1D1DB-864A-46D5-A9B8-B96A254053E7",
+      "id" : "735C8CCC-0F93-4C84-A77F-524B9A609B8B",
       "name" : "Configuration 1",
       "options" : {
 
@@ -17,6 +17,20 @@
         "containerPath" : "container:EssentialApp.xcodeproj",
         "identifier" : "169493572B11C113005F096F",
         "name" : "EssentialAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/EssentialFeed\/EssentialFeed.xcodeproj",
+        "identifier" : "FC73A9F72936317B00C44954",
+        "name" : "EssentialFeedTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/EssentialFeed\/EssentialFeed.xcodeproj",
+        "identifier" : "16743B232B11F60600B7C9E1",
+        "name" : "EssentialFeediOSTests"
       }
     }
   ],
