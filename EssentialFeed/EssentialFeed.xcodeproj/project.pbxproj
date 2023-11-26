@@ -385,6 +385,23 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		16F9ECE02B130C8B00EBF7E6 /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				16F9ECD12B13071B00EBF7E6 /* ImageCommentsMapper.swift */,
+				16F9ECD32B13073B00EBF7E6 /* RemoteImageCommentsLoader.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
+		16F9ECE12B130CA300EBF7E6 /* Image Comments API */ = {
+			isa = PBXGroup;
+			children = (
+				16F9ECD52B13076900EBF7E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
+			);
+			path = "Image Comments API";
+			sourceTree = "<group>";
+		};
 		FC06B9882945B74900296005 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,7 +437,6 @@
 			children = (
 				FC73AA0F2936336300C44954 /* LoadFeedFromRemoteUseCaseTests.swift */,
 				FCBF15E229C4B4730074AB5F /* LoadFeedImageDataFromRemoteUseCaseTests.swift */,
-				16F9ECD52B13076900EBF7E6 /* LoadImageCommentsFromRemoteUseCaseTests.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -510,6 +526,7 @@
 				16F9ECDB2B130BC900EBF7E6 /* Shared API Infra */,
 				16F9ECDA2B130BBA00EBF7E6 /* Shared API */,
 				16F9ECD72B1308E800EBF7E6 /* Image Comments Feature */,
+				16F9ECE02B130C8B00EBF7E6 /* Image Comments API */,
 				FC73AA0E293632C700C44954 /* Feed Feature */,
 				FC73AA112936393300C44954 /* Feed API */,
 				FC5E388F293F94B8002DEFB2 /* Feed Cache */,
@@ -524,6 +541,7 @@
 				FCD6B0362938E55E00C950A1 /* Helpers */,
 				16F9ECDC2B130BDE00EBF7E6 /* Shared API Infra */,
 				16F9ECDE2B130C1400EBF7E6 /* Shared API */,
+				16F9ECE12B130CA300EBF7E6 /* Image Comments API */,
 				FC21F80E2937AF2200EA7370 /* Feed API */,
 				FC5E388C293F86C7002DEFB2 /* Feed Cache */,
 				FCBF15C629C4901E0074AB5F /* Feed Presentation */,
@@ -551,8 +569,6 @@
 				16C12E162A092FB100A2B248 /* RemoteFeedImageDataLoader.swift */,
 				FC21F80C2937A97100EA7370 /* FeedItemsMapper.swift */,
 				FC5E3894293F9C49002DEFB2 /* RemoteFeedItem.swift */,
-				16F9ECD12B13071B00EBF7E6 /* ImageCommentsMapper.swift */,
-				16F9ECD32B13073B00EBF7E6 /* RemoteImageCommentsLoader.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
