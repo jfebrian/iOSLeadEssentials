@@ -40,6 +40,7 @@
 		16DAC6D72B11BAC8006B0E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DAC6D62B11BAC8006B0E4C /* Assets.xcassets */; };
 		16DAC6DA2B11BAC8006B0E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16DAC6D82B11BAC8006B0E4C /* LaunchScreen.storyboard */; };
 		16F9ECC72B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9ECC62B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift */; };
+		16F9ECCA2B12F65C00EBF7E6 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9ECC92B12F65C00EBF7E6 /* CombineHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		16DAC6D92B11BAC8006B0E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16DAC6DB2B11BAC8006B0E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16F9ECC62B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
+		16F9ECC92B12F65C00EBF7E6 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				16DAC6CD2B11BAC7006B0E4C /* AppDelegate.swift */,
 				16DAC6CF2B11BAC7006B0E4C /* SceneDelegate.swift */,
+				16F9ECC92B12F65C00EBF7E6 /* CombineHelpers.swift */,
 				16743AF92B11E5D600B7C9E1 /* Composers */,
 				16DAC6D12B11BAC7006B0E4C /* ViewController.swift */,
 				16DAC6D62B11BAC8006B0E4C /* Assets.xcassets */,
@@ -341,6 +344,7 @@
 				16743B012B11E5E500B7C9E1 /* MainQueueDispatchDecorator.swift in Sources */,
 				16DAC6D22B11BAC7006B0E4C /* ViewController.swift in Sources */,
 				16743AFF2B11E5E500B7C9E1 /* FeedUIComposer.swift in Sources */,
+				16F9ECCA2B12F65C00EBF7E6 /* CombineHelpers.swift in Sources */,
 				16DAC6CE2B11BAC7006B0E4C /* AppDelegate.swift in Sources */,
 				16743B002B11E5E500B7C9E1 /* FeedViewAdapter.swift in Sources */,
 				16743B022B11E5E500B7C9E1 /* FeedLoaderPresentationAdapter.swift in Sources */,
