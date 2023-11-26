@@ -38,7 +38,6 @@
 		16DAC6D02B11BAC7006B0E4C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DAC6CF2B11BAC7006B0E4C /* SceneDelegate.swift */; };
 		16DAC6D72B11BAC8006B0E4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16DAC6D62B11BAC8006B0E4C /* Assets.xcassets */; };
 		16DAC6DA2B11BAC8006B0E4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16DAC6D82B11BAC8006B0E4C /* LaunchScreen.storyboard */; };
-		16F9ECC72B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9ECC62B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift */; };
 		16F9ECCA2B12F65C00EBF7E6 /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9ECC92B12F65C00EBF7E6 /* CombineHelpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,7 +99,6 @@
 		16DAC6D62B11BAC8006B0E4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16DAC6D92B11BAC8006B0E4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16DAC6DB2B11BAC8006B0E4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16F9ECC62B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 		16F9ECC92B12F65C00EBF7E6 /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,7 +128,6 @@
 				16743AFD2B11E5E500B7C9E1 /* LoadResourcePresentationAdapter.swift */,
 				16743AFA2B11E5E500B7C9E1 /* FeedUIComposer.swift */,
 				16743AFB2B11E5E500B7C9E1 /* FeedViewAdapter.swift */,
-				16F9ECC62B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift */,
 				16743AFC2B11E5E500B7C9E1 /* MainQueueDispatchDecorator.swift */,
 				16743AFE2B11E5E500B7C9E1 /* WeakRefVirtualProxy.swift */,
 			);
@@ -346,7 +343,6 @@
 				16743B022B11E5E500B7C9E1 /* LoadResourcePresentationAdapter.swift in Sources */,
 				16DAC6D02B11BAC7006B0E4C /* SceneDelegate.swift in Sources */,
 				16743B032B11E5E500B7C9E1 /* WeakRefVirtualProxy.swift in Sources */,
-				16F9ECC72B12F0CA00EBF7E6 /* FeedImageDataLoaderPresentationAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
