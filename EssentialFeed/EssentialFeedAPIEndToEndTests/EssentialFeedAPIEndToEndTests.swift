@@ -44,11 +44,11 @@ final class EssentialFeedAPIEndToEndTests: XCTestCase {
     
     // MARK: - Helpers
     
-    private func getFeedResults(file: StaticString = #file, line: UInt = #line) -> LoadFeedResult? {
+    private func getFeedResults(file: StaticString = #file, line: UInt = #line) -> Result<[FeedImage], Error>? {
         let client = ephemeralClient()
         let exp = expectation(description: "Wait for load completion")
 
-        var receivedResult: LoadFeedResult?
+        var receivedResult: Result<[FeedImage], Error>?
         client.get(from: feedTestServerURL) { result in
             receivedResult = result.flatMap { (data, response) in
                 do {
