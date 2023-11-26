@@ -108,11 +108,6 @@ final class RemoteLoaderTests: XCTestCase {
         return (item, json)
     }
 
-    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
-        let json = ["items": items]
-        return try! JSONSerialization.data(withJSONObject: json)
-    }
-
     private func expect(
         _ sut: RemoteLoader<String>,
         toCompleteWith expectedResult: RemoteLoader<String>.Result,
