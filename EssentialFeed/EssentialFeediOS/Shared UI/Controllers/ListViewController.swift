@@ -91,7 +91,12 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
             dataSource.apply(snapshot)
         }
     }
-    
+
+    public override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let delegate = cellController(at: indexPath)?.delegate
+        delegate?.tableView?(tableView, willDisplay: cell, forRowAt: indexPath)
+    }
+
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let delegate = cellController(at: indexPath)?.delegate
         delegate?.tableView?(tableView, didEndDisplaying: cell, forRowAt: indexPath)
