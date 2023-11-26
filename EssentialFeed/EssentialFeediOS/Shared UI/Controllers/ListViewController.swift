@@ -23,11 +23,33 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        configureErrorView()
+        configureTraitCollectionObservers()
+
         onViewIsAppearing = { vc in
             vc.onViewIsAppearing = nil
-            vc.configureErrorView()
             vc.refresh()
+        }
+    }
+
+    private func configureTraitCollectionObservers() {
+        if #available(iOS 17, *) {
+            registerForTraitChanges(
+                [UITraitPreferredContentSizeCategory.self]
+            ) { (self: Self, previous: UITraitCollection) in
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+    public override func traitCollectionDidChange(_ previous: UITraitCollection?) {
+        if #unavailable(iOS 17) {
+            super.traitCollectionDidChange(previous)
+
+            if previous?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
+                tableView.reloadData()
+            }
         }
     }
 
