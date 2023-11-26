@@ -59,6 +59,7 @@
 		16F9ED402B132E3E00EBF7E6 /* FEED_WITH_FAILED_IMAGE_LOADING_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F9ED382B132E3E00EBF7E6 /* FEED_WITH_FAILED_IMAGE_LOADING_light.png */; };
 		16F9ED412B132E3E00EBF7E6 /* FEED_WITH_ERROR_MESSAGE_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F9ED392B132E3E00EBF7E6 /* FEED_WITH_ERROR_MESSAGE_light.png */; };
 		16F9ED422B132E3E00EBF7E6 /* EMPTY_FEED_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 16F9ED3A2B132E3E00EBF7E6 /* EMPTY_FEED_dark.png */; };
+		16F9ED442B13337C00EBF7E6 /* CellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9ED432B13337C00EBF7E6 /* CellController.swift */; };
 		FC06B98C2945B7AD00296005 /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */; };
 		FC06B98E2945B83600296005 /* ManagedCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98D2945B83600296005 /* ManagedCache.swift */; };
 		FC06B9902945B83D00296005 /* ManagedFeedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC06B98F2945B83D00296005 /* ManagedFeedImage.swift */; };
@@ -233,6 +234,7 @@
 		16F9ED382B132E3E00EBF7E6 /* FEED_WITH_FAILED_IMAGE_LOADING_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FEED_WITH_FAILED_IMAGE_LOADING_light.png; sourceTree = "<group>"; };
 		16F9ED392B132E3E00EBF7E6 /* FEED_WITH_ERROR_MESSAGE_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FEED_WITH_ERROR_MESSAGE_light.png; sourceTree = "<group>"; };
 		16F9ED3A2B132E3E00EBF7E6 /* EMPTY_FEED_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EMPTY_FEED_dark.png; sourceTree = "<group>"; };
+		16F9ED432B13337C00EBF7E6 /* CellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellController.swift; sourceTree = "<group>"; };
 		FC06B98B2945B7AD00296005 /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		FC06B98D2945B83600296005 /* ManagedCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCache.swift; sourceTree = "<group>"; };
 		FC06B98F2945B83D00296005 /* ManagedFeedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedFeedImage.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				FC5B8919297D154600612AA0 /* ListViewController.swift */,
+				16F9ED432B13337C00EBF7E6 /* CellController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1220,6 +1223,7 @@
 				16743B362B11F91900B7C9E1 /* UITableView+HeaderSizing.swift in Sources */,
 				FCC079E029AB5A640078677E /* UIRefreshControl+Helpers.swift in Sources */,
 				FCCB927129A6066F00B74DB6 /* UIImageView+Animations.swift in Sources */,
+				16F9ED442B13337C00EBF7E6 /* CellController.swift in Sources */,
 				FC4C1BA629851B6E009DF7E6 /* UIView+Shimmering.swift in Sources */,
 				FCCB926F29A6058B00B74DB6 /* UITableView+DequeueCell.swift in Sources */,
 				FC818B8229AB55A1000956D9 /* ErrorView.swift in Sources */,
